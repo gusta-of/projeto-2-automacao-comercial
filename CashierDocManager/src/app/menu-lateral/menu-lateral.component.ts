@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'menu-sidebar-CDM',
+  selector: 'menu-lateral-CDM',
   templateUrl: './menu-lateral.component.html',
   styleUrls: ['./menu-lateral.component.scss']
 })
