@@ -1,4 +1,4 @@
-.box{
+.box-caixa{
     display: flex;
     flex-direction: column;
     width: 15%;
@@ -8,16 +8,4 @@
     display: inherit;
     margin: 0 auto 0 auto;
     float: right;
-}
-
-.button{
-    width: 160px !important; 
-    height: 50px !important; 
-    background-color: #F16943;
-    display: inherit;  
-    border-radius: 3px;
-    border: 0px;
-    margin: 0px;
-    color: antiquewhite;
-    align-content: center; 
 }
