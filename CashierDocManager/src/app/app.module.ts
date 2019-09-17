@@ -5,6 +5,7 @@ import { AppComponent } from './app.component';
 import { CaixaModule } from './caixa/caixa.module';
 import { MenuLateralComponent } from './menu-lateral/menu-lateral.component';
 
+
 @NgModule({
   declarations: [
     AppComponent,

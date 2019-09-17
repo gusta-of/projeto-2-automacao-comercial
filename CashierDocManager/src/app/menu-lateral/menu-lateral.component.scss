@@ -1,9 +1,9 @@
 @media (min-width: 768px) {
 
-        .sidebar {
-            width: 225px !important;
-        }
-    
+
+
+    .nav-item{}
+
         .sidebar.toggled {
             overflow: visible !important;
             width: 90px !important;
@@ -24,16 +24,6 @@
         .sidebar .nav-item .nav-link span {
             display: inline !important;
         }
-    }
-    
-    .nav-item .nav-link span {
-        font-size: 0.71rem !important;
-        display: block !important;
-    }
-    
-    .nav-item .nav-link i {
-        font-size: 2em !important;
-        padding-top: 10px !important;
     }
     
     .sidebar {
