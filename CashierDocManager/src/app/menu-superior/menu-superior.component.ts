@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Inject } from '@angular/core';
+import { DOCUMENT } from '@angular/common';
+import { ProdutoModel } from '../model/produto.model.component';
 
 @Component({
   selector: 'menu-superior-CDM',
@@ -7,11 +9,42 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MenuSuperiorComponent implements OnInit {
 
-  constructor() { }
+  constructor(
+
+  @Inject(DOCUMENT) private document: Document,
+
+
+ ) { }
+
+    
 
   ngOnInit() {
+
+   
+
   }
 
+  exibeMenuLateral: boolean = true
+
+  showMenuLateral = true;
+
   
+  apresentarMenu() {
+    this.exibeMenuLateral = !this.exibeMenuLateral;
+
+    this.showMenuLateral = !this.showMenuLateral;
+
+    if (!this.showMenuLateral) {
+
+        var classList = this.document.getElementById('menuLateral').classList;
+
+        classList.add('display-none')
+
+    } else {
+
+        this.document.getElementById('menuLateral').classList.remove('display-none');
+
+   }
+}
 
 }

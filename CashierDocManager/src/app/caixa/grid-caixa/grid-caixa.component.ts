@@ -10,27 +10,26 @@ export class GridCaixaComponent implements OnInit {
 
   constructor() { }
 
+  lista: ProdutoModel[] = [];
+
   ngOnInit() {
     this.recebeValores();
   }
 
-  lista : ProdutoModel []= [];
+  recebeValores() {
 
-
-   recebeValores() {
-    
     let produtoModel = new ProdutoModel;
 
-    for (let index = 0; index < 200 ; index++) {
+    for (let index = 0; index < 200; index++) {
 
-      produtoModel.produtoNome = 'DIPIRONA' + index;
+      produtoModel.produtoNome = 'DIPIRONA ' + index;
 
-      produtoModel.quantidade = 10 + 1;
-  
-      produtoModel.total= 100 + 1;
+      produtoModel.quantidade = 10 + index;
+
+      produtoModel.total = 100 + index;
 
       this.lista.push(produtoModel);
-  }  
+    }
 
 
   }
