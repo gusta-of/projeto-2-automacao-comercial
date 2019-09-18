@@ -18,14 +18,12 @@ export class GridCaixaComponent implements OnInit {
 
   recebeValores() {
 
-    let produtoModel = new ProdutoModel;
 
     for (let index = 0; index < 200; index++) {
 
+      let produtoModel = new ProdutoModel;
       produtoModel.produtoNome = 'DIPIRONA ' + index;
-
       produtoModel.quantidade = 10 + index;
-
       produtoModel.total = 100 + index;
 
       this.lista.push(produtoModel);
