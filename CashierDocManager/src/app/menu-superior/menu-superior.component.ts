@@ -9,18 +9,9 @@ import { ProdutoModel } from '../model/produto.model.component';
 })
 export class MenuSuperiorComponent implements OnInit {
 
-  constructor(
-
-  @Inject(DOCUMENT) private document: Document,
-
-
- ) { }
-
-    
+  constructor(@Inject(DOCUMENT) private document: Document) { }
 
   ngOnInit() {
-
-   
 
   }
 
@@ -28,7 +19,7 @@ export class MenuSuperiorComponent implements OnInit {
 
   showMenuLateral = true;
 
-  
+
   apresentarMenu() {
     this.exibeMenuLateral = !this.exibeMenuLateral;
 
@@ -36,15 +27,15 @@ export class MenuSuperiorComponent implements OnInit {
 
     if (!this.showMenuLateral) {
 
-        var classList = this.document.getElementById('menuLateral').classList;
+      var classList = this.document.getElementById('menuLateral').classList;
 
-        classList.add('display-none')
+      classList.add('display-none')
 
     } else {
 
-        this.document.getElementById('menuLateral').classList.remove('display-none');
+      this.document.getElementById('menuLateral').classList.remove('display-none');
 
-   }
-}
+    }
+  }
 
 }

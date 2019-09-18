@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { CaixaMenuEsquerdoComponent } from './caixa-menu-esquerdo.component';
+import { CaixaMenuComponent } from './caixa-menu.component';
 
 describe('CaixaMenuEsquerdoComponent', () => {
-  let component: CaixaMenuEsquerdoComponent;
-  let fixture: ComponentFixture<CaixaMenuEsquerdoComponent>;
+  let component: CaixaMenuComponent;
+  let fixture: ComponentFixture<CaixaMenuComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ CaixaMenuEsquerdoComponent ]
+      declarations: [ CaixaMenuComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(CaixaMenuEsquerdoComponent);
+    fixture = TestBed.createComponent(CaixaMenuComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

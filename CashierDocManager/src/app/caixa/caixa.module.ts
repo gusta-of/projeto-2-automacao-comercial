@@ -1,33 +1,27 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { CaixaComponent } from './caixa.component';
-import { CaixaMenuEsquerdoComponent } from './caixa-menu-esquerdo/caixa-menu-esquerdo.component';
 import { ButtonModule } from 'primeng/button';
-import {BrowserModule} from '@angular/platform-browser';
-import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
-import { MenuSuperiorComponent } from '../menu-superior/menu-superior.component';
+import { BrowserModule } from '@angular/platform-browser';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { GridCaixaComponent } from './grid-caixa/grid-caixa.component';
-import { DataTableModule } from "primeng/primeng";
 import { TableModule } from "primeng/table";
-import { MenuLateralComponent } from '../menu-lateral/menu-lateral.component';
+import { CaixaMenuComponent } from './caixa-menu/caixa-menu.component';
 
 @NgModule({
   declarations: [
-    CaixaComponent,
-    CaixaMenuEsquerdoComponent,
-  MenuSuperiorComponent,
-  MenuLateralComponent,
-  GridCaixaComponent],
+    GridCaixaComponent,
+    CaixaMenuComponent],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
     CommonModule,
     ButtonModule,
-    DataTableModule,
     TableModule
   ],
   exports: [
-    CaixaComponent
+    GridCaixaComponent,
+    CaixaMenuComponent
   ]
 })
 export class CaixaModule { }
