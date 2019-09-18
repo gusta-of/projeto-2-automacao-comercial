@@ -1,5 +1,77 @@
+.logout-icon{
+    color: #4F4F4F !important;
+    border-left: solid 1px!important;
+}
+.navbar {
+    height: 5%;
+    position: relative !important;
+    display: -ms-flexbox !important;;
+    display: flex !important;;
+    -ms-flex-wrap: wrap !important;;
+    flex-wrap: wrap !important;;
+    -ms-flex-align: center !important;;
+    align-items: center !important;;
+    -ms-flex-pack: justify !important;;
+    justify-content: space-between !important;;
+    padding: .5rem 1rem !important;;
+}
+
+nav.navbar.navbar-expand.navbar-dark.bg-dark.static-top {
+    /*background: linear-gradient(to right, #121212, #f34e54) left bottom #777 no-repeat;*/
+    background-size: 100% 1px;
+    border-bottom: 1px solid #4F4F4F;
+    margin-right: -266px;
+}
+
+
+.navbar-expand {
+    -ms-flex-flow: row nowrap !important;
+    flex-flow: row nowrap !important;
+    -ms-flex-pack: start !important;
+    justify-content: flex-start !important;
+}
+
 .btn {
     border-right: 2px solid white;
+}
+.navbar-brand {
+    display: inline-block !important;
+    padding-top: .3125rem !important;
+    padding-bottom: .3125rem !important;
+    margin-right: 1rem !important;
+    font-size: 1.25rem !important;
+    line-height: inherit !important;
+    white-space: nowrap !important;
+}
+
+.navbar-dark .navbar-brand {
+    color: #29314e !important;
+}
+
+#sidebarToggle{
+    background-color:#4F4F4F !important;
+    /*min-width: 90px;*/
+}
+
+.logo{
+    width: 76px;
+    height: 50px;
+}
+
+.dialog{
+    background: #29314e;
+}
+.nav-link{
+    border-radius: 0px 10px!important;
+}
+
+.separador-direita{
+    border-right: 2px solid white;
+    height: 100%;;
+}
+.separador-esquerda{
+    border-left: 2px solid white;
+    height: 100%;;
 }
 
 .linha-menu-superior{
@@ -8,10 +80,10 @@
 }
 
 .menu-superior{
-    border-bottom: 0.5px solid #d3d3d3;
     height: 74px;
     align-items: start;
     align-items: center;
+    border-bottom: 1px solid #f3f3f3;
 
 }
 .project-name{
@@ -23,6 +95,7 @@
     color:white;
 
 }
-
+table {background:white;border:1px solid gray}
+td {border:none}
 
 
