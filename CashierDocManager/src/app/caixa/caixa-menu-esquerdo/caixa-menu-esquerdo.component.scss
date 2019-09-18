@@ -1,15 +1,11 @@
 .box-caixa{
     display: flex;
     flex-direction: column;
-    width: 15%;
-    height: 100%;
     background-color: #363232;
     text-align: center;
-    display: inherit;
-    margin: 0 auto 0 auto;
-    float: right;
+    height: 100%;
 }
 
 .container{
-    padding-top: 5% !important;
+    margin-top: 10% !important;
 }

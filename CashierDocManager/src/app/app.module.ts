@@ -9,7 +9,6 @@ import { MenuLateralComponent } from './menu-lateral/menu-lateral.component';
 @NgModule({
   declarations: [
     AppComponent,
-    MenuLateralComponent
   ],
   imports: [
     BrowserModule,
