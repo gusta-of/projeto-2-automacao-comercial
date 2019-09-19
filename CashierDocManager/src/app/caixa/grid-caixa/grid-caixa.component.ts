@@ -17,8 +17,6 @@ export class GridCaixaComponent implements OnInit {
   }
 
   recebeValores() {
-
-
     for (let index = 0; index < 200; index++) {
 
       let produtoModel = new ProdutoModel;

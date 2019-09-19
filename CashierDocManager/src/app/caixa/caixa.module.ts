@@ -6,10 +6,11 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { GridCaixaComponent } from './grid-caixa/grid-caixa.component';
 import { TableModule } from "primeng/table";
 import { CaixaMenuComponent } from './caixa-menu/caixa-menu.component';
-import { CardsComponent } from './cards/cards.component';
+import { AutoCompleteModule } from 'primeng/autocomplete';
 import { InputCaixaComponent } from './input-caixa/input-caixa.component';
-import {AutoCompleteModule} from 'primeng/autocomplete';
-import {FormsModule} from '@angular/forms'
+import { FormsModule }   from '@angular/forms';
+import { CardsComponent } from './cards/cards.component';
+
 
 @NgModule({
   declarations: [
