@@ -1,4 +1,15 @@
 .section-left{
     display: flex;
     flex-direction: row;
+    position: relative;
+}
+
+.box-layout{
+   display: flex;
+   flex-direction: row;
+}
+
+.box-content{
+    width: 100%;
+    bottom: 0;
 }
