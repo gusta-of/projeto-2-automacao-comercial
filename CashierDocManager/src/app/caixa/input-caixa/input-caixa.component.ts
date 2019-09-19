@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { PessoaModel } from 'src/app/model/pessoa.model.component';
 
 @Component({
   selector: 'input-caixa-CDM',
@@ -27,13 +28,13 @@ export class InputCaixaComponent implements OnInit {
     pessoa.nome = "Raimundis";
     pessoa.cpf = "987654321";
 
-    this.pessoas.push(pessoa1);
-    this.pessoas.push(pessoa);
+    this.pessoas.push(pessoa1.nome);
+    this.pessoas.push(pessoa.nome);
   }
 
   search(event): void {
     this.pessoasResultado = [];
-    this.pessoasResultado = this.pessoas.filter(c => c.nome.startsWith(event.query));
+    this.pessoasResultado = this.pessoas.filter(c => c.startsWith(event.query));
   }
 
 }
