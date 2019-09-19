@@ -1,18 +1,16 @@
 <section class="secao-inputs col">
 
     <div class="row-inputs row">
-        <span class="ui-float-label">
-            <input id="float-input" type="text" size="30" pInputText>
+        <span class="ui-float-label input-padrao">
+            <input class="input-padrao" id="float-input" type="text" size="30" pInputText>
             <label for="float-input">Cliente</label>
         </span>
     </div>
 
-
-
     <div class="row-sessaoproduto">
 
         <span class="ui-float-label">
-            <input id="float-input" type="text" size="30" pInputText>
+            <input class="input-padrao" id="float-input" type="text" size="30" pInputText>
             <label for="float-input">Produto</label>
         </span>
 
@@ -20,14 +18,21 @@
             <div>
                 <span>Valor:</span>
             </div>
-            <div class="ui-inputgroup">
+            <div class="ui-inputgroup input-padrao">
                 <span class="ui-inputgroup-addon">R$</span>
                 <input type="text" pInputText currencyMask placeholder="0,00">
             </div>
         </div>
 
-        <div class="box-quantidade">
+        <div class="box-quantidade input-padrao">
             <p-spinner size="10" [min]="0" [(ngModel)]="quantidade"></p-spinner>
         </div>
     </div>
+    <div class="row-inputs row">
+        <div class="row-inputs row">
+            <button pButton type="button" label="Adicione"></button>
+        </div>
+    </div>
+
+
 </section>

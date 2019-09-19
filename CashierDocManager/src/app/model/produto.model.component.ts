@@ -1,14 +1,12 @@
 
 export class ProdutoModel {
 
+    clienteNome: string;
     produtoNome: string;
-
     quantidade: number;
-
     total: number;
 
     listaTesteEntidade: ProdutoModel[] =[];
-
 
     caixaModel(produtoNome:string,quantidade:number,total:number,listaTesteEntidade: ProdutoModel[]){
 

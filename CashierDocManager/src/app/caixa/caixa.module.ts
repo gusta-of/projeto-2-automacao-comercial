@@ -12,7 +12,6 @@ import { FormsModule }   from '@angular/forms';
 import { CardsComponent } from './cards/cards.component';
 import {SpinnerModule} from 'primeng/spinner';
 
-
 @NgModule({
   declarations: [
     GridCaixaComponent,

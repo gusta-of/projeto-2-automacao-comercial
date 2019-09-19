@@ -2,6 +2,7 @@
     <p-table [value]="lista" [paginator]="true" [rows]="7">
                 <ng-template pTemplate="header">
                     <tr>
+                        <th>CLIENTE</th>
                         <th>PRODUTO</th>
                         <th>QUANTIDADE</th>
                         <th>R$ TOTAL</th>
@@ -9,6 +10,7 @@
                 </ng-template>
                 <ng-template pTemplate="body" let-obj>
                     <tr>
+                        <td>{{obj.clienteNome}}</td>
                         <td>{{obj.produtoNome}}</td>
                         <td>{{obj.quantidade}}</td>
                         <td>{{obj.total}}</td>
