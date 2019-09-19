@@ -9,7 +9,18 @@
     margin-left: 2%;
 }
 
-.row-juros{
-    margin-top: 3%;
-    margin-left: 4%;
+.row-sessaoproduto{
+    display: flex;
+    flex-direction: row;
+    margin-left: 2%;
+}
+
+.box-valor{
+    margin-left: 10%;
+    margin-top: 17px;
+}
+
+.box-quantidade{
+    margin-left: 2%;
+    margin-top: 44px;
 }

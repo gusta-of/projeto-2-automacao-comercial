@@ -10,6 +10,7 @@ import { AutoCompleteModule } from 'primeng/autocomplete';
 import { InputCaixaComponent } from './input-caixa/input-caixa.component';
 import { FormsModule }   from '@angular/forms';
 import { CardsComponent } from './cards/cards.component';
+import {SpinnerModule} from 'primeng/spinner';
 
 
 @NgModule({
@@ -26,7 +27,8 @@ import { CardsComponent } from './cards/cards.component';
     ButtonModule,
     TableModule,
     AutoCompleteModule,
-    FormsModule
+    FormsModule,
+    SpinnerModule
   ],
   exports: [
     GridCaixaComponent,

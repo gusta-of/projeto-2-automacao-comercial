@@ -8,12 +8,12 @@ import { PessoaModel } from 'src/app/model/pessoa.model.component';
 })
 export class InputCaixaComponent implements OnInit {
 
-  constructor() { }
-
+  quantidade : number;
   text: string;
-
   pessoasResultado: string[];
   pessoas: string[];
+
+  constructor() { }
   
   ngOnInit() {
     this.MontePessoas();
