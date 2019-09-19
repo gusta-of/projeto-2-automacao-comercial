@@ -8,9 +8,9 @@ import { ProdutoModel } from 'src/app/model/produto.model.component';
 })
 export class GridCaixaComponent implements OnInit {
 
-  constructor() { }
-
   lista: ProdutoModel[] = [];
+
+  constructor() { }
 
   ngOnInit() {
     this.recebeValores();
