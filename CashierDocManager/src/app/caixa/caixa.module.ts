@@ -7,21 +7,29 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { GridCaixaComponent } from './grid-caixa/grid-caixa.component';
 import { TableModule } from "primeng/table";
 import { CaixaMenuComponent } from './caixa-menu/caixa-menu.component';
+import { AutoCompleteModule } from 'primeng/autocomplete';
+import { InputCaixaComponent } from './input-caixa/input-caixa.component';
+import { FormsModule }   from '@angular/forms';
 
 @NgModule({
   declarations: [
     GridCaixaComponent,
-    CaixaMenuComponent],
+    CaixaMenuComponent,
+    InputCaixaComponent
+  ],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
     CommonModule,
     ButtonModule,
-    TableModule
+    TableModule,
+    AutoCompleteModule,
+    FormsModule
   ],
   exports: [
     GridCaixaComponent,
-    CaixaMenuComponent
+    CaixaMenuComponent,
+    InputCaixaComponent
   ]
 })
 export class CaixaModule { }
