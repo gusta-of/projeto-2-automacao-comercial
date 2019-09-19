@@ -12,8 +12,8 @@ export class InputCaixaComponent implements OnInit {
 
   text: string;
 
-  pessoasResultado: string[] = [];
-  pessoas: string[] = [];
+  pessoasResultado: string[];
+  pessoas: string[];
   
   ngOnInit() {
     this.MontePessoas();
