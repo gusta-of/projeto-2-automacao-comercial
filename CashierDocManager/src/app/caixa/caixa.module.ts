@@ -11,6 +11,7 @@ import { InputCaixaComponent } from './input-caixa/input-caixa.component';
 import { FormsModule }   from '@angular/forms';
 import { CardsComponent } from './cards/cards.component';
 import {SpinnerModule} from 'primeng/spinner';
+import { VendasService } from './vendas.service';
 
 @NgModule({
   declarations: [
@@ -34,6 +35,9 @@ import {SpinnerModule} from 'primeng/spinner';
     CaixaMenuComponent,
     CardsComponent,
     InputCaixaComponent
+  ],
+  providers: [ 
+    VendasService
   ]
 })
 export class CaixaModule { }
