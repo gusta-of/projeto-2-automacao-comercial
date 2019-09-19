@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { CaixaComponent } from './caixa.component';
 import { ButtonModule } from 'primeng/button';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -10,11 +9,14 @@ import { CaixaMenuComponent } from './caixa-menu/caixa-menu.component';
 import { AutoCompleteModule } from 'primeng/autocomplete';
 import { InputCaixaComponent } from './input-caixa/input-caixa.component';
 import { FormsModule }   from '@angular/forms';
+import { CardsComponent } from './cards/cards.component';
+
 
 @NgModule({
   declarations: [
     GridCaixaComponent,
     CaixaMenuComponent,
+    CardsComponent,
     InputCaixaComponent
   ],
   imports: [
@@ -29,6 +31,7 @@ import { FormsModule }   from '@angular/forms';
   exports: [
     GridCaixaComponent,
     CaixaMenuComponent,
+    CardsComponent,
     InputCaixaComponent
   ]
 })

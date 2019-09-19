@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { PessoaModel } from 'src/app/model/pessoa.model.component';
 
 @Component({
   selector: 'input-caixa-CDM',
@@ -12,8 +11,8 @@ export class InputCaixaComponent implements OnInit {
 
   text: string;
 
-  pessoasResultado: PessoaModel[];
-  pessoas: PessoaModel[] = [];
+  pessoasResultado: string[];
+  pessoas: string[];
   
   ngOnInit() {
     this.MontePessoas();
@@ -36,7 +35,5 @@ export class InputCaixaComponent implements OnInit {
     this.pessoasResultado = [];
     this.pessoasResultado = this.pessoas.filter(c => c.nome.startsWith(event.query));
   }
-
-
 
 }
