@@ -1,3 +1,24 @@
-<p-autoComplete [(ngModel)]="pessoas" [suggestions]="pessoasResultado" (completeMethod)="search($event)">
-</p-autoComplete>
+<section class="secao-inputs col">
 
+
+
+    <div class="row-inputs row">
+        <span class="ui-float-label">
+            <input id="float-input" type="text" size="30" pInputText>
+            <label for="float-input">Cliente</label>
+        </span>
+        <span class="ui-float-label">
+            <input id="float-input" type="text" size="30" pInputText>
+            <label for="float-input">Produto</label>
+        </span>
+    </div>
+    <div class="row-juros">
+        <div class="col-sm">
+            <span>Juros:</span>
+        </div>
+        <div class="ui-inputgroup">
+            <span class="ui-inputgroup-addon">R$</span>
+            <input type="text" pInputText currencyMask placeholder="0,00">
+        </div>
+    </div>
+</section>

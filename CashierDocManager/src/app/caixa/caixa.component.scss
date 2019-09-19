@@ -27,6 +27,14 @@
 .box-output{
     padding-top: 1%;
     padding-right: 2%;
+}
+
+.box-row{
+    display: flex;
+    flex-direction: row;
     width: 100%;
-    text-align: -webkit-right;
+}
+
+.box-input{
+    width: 100%;
 }
