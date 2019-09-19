@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { PessoaModel } from 'src/app/model/pessoa.model.component';
 
 @Component({
   selector: 'input-caixa-CDM',
