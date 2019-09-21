@@ -1,5 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { ProdutoModel } from 'src/app/model/produto.model.component';
+import { MatPaginator, MatTableDataSource } from '@angular/material';
+import { VendasService } from '../vendas.service';
 
 @Component({
   selector: 'grid-caixa-CDM',
@@ -7,27 +9,24 @@ import { ProdutoModel } from 'src/app/model/produto.model.component';
   styleUrls: ['./grid-caixa.component.scss']
 })
 export class GridCaixaComponent implements OnInit {
+  /** Cria Array generico */
+  produtos: any[];
 
-  lista: ProdutoModel[] = [];
+  /** Define as colunas da table */
+  colunas: string[] = ['ID', 'Produto', 'Valor'];
 
-  constructor() { }
+   /** Propriedade data sorce da table, define o tipo e os elementos carregados */
+   dataSource: any;
+  
+  /**Declara propriedade de paginação da data table */
+  @ViewChild(MatPaginator, {static: true}) paginator: MatPaginator;
+
+  constructor(private vendaService: VendasService) { }
 
   ngOnInit() {
-    this.recebeValores();
-  }
-
-  recebeValores() {
-    for (let index = 0; index < 200; index++) {
-
-      let produtoModel = new ProdutoModel;
-      produtoModel.produtoNome = 'DIPIRONA ' + index;
-      produtoModel.quantidade = 10 + index;
-      produtoModel.total = 100 + index;
-
-      this.lista.push(produtoModel);
-    }
-
-
+    this.produtos = this.vendaService.getVendas();
+    this.dataSource = new MatTableDataSource<VendasService>(this.produtos);
+    this.dataSource.paginator = this.paginator;
   }
 
 }

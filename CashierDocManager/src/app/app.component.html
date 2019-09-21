@@ -1,13 +1,15 @@
-<section>
-        <menu-superior-CDM></menu-superior-CDM>
-</section>
-<div class="box-layout">
-        <section class="section-left">
-                <menu-lateral-CDM></menu-lateral-CDM>
-        </section>
+<mat-toolbar>
+  <button mat-fab color="dark" routerLink="" >CDM</button>
 
-        <div class="box-content">
-                <caixa-CDM></caixa-CDM>
-        </div>
+  
+  <button mat-button [matMenuTriggerFor]="menu" style="margin-left: 6%;">Menu</button>
+  <mat-menu #menu="matMenu">
+    <button mat-menu-item routerLink="home">Home</button>
+    <button mat-menu-item routerLink="caixa">Caixa</button>
+  </mat-menu>
+</mat-toolbar>
 
+<div class="container">
+
+  <router-outlet></router-outlet>
 </div>

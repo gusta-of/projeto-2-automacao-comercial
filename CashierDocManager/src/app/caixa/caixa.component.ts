@@ -1,5 +1,4 @@
-import { Component, OnInit } from '@angular/core';
-import { VendasService } from './vendas.service';
+import { Component, OnInit, ViewChild } from '@angular/core';
 
 @Component({
   selector: 'caixa-CDM',
@@ -8,9 +7,10 @@ import { VendasService } from './vendas.service';
 })
 export class CaixaComponent implements OnInit {
 
-  constructor(private vendaService: VendasService) { }
+  constructor() { }
 
   ngOnInit() {
   }
 
 }
+
