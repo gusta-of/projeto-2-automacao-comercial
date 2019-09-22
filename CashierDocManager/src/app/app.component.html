@@ -1,0 +1,13 @@
+<mat-toolbar>
+  <button mat-fab color="warn" routerLink="">CDM</button>
+
+
+  <button mat-button [matMenuTriggerFor]="menu" class="button-position">Menu</button>
+  <mat-menu #menu="matMenu">
+    <button mat-menu-item routerLink="home">Home</button>
+    <button mat-menu-item routerLink="caixa">Caixa</button>
+  </mat-menu>
+</mat-toolbar>
+<div class="box-content">
+  <router-outlet></router-outlet>
+</div>
