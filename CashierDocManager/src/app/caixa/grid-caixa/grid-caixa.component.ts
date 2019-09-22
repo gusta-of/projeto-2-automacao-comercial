@@ -2,11 +2,13 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { ProdutoModel } from 'src/app/model/produto.model.component';
 import { MatPaginator, MatTableDataSource } from '@angular/material';
 import { VendasService } from '../vendas.service';
+import { ChangeDetectionStrategy } from '@angular/core';
 
 @Component({
   selector: 'grid-caixa-CDM',
   templateUrl: './grid-caixa.component.html',
-  styleUrls: ['./grid-caixa.component.scss']
+  styleUrls: ['./grid-caixa.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class GridCaixaComponent implements OnInit {
   /** Cria Array generico */

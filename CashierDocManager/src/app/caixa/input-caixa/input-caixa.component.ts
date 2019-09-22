@@ -1,10 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { PessoaModel } from 'src/app/model/pessoa.model.component';
+import { ChangeDetectionStrategy } from '@angular/core';
 
 @Component({
   selector: 'input-caixa-CDM',
   templateUrl: './input-caixa.component.html',
-  styleUrls: ['./input-caixa.component.scss']
+  styleUrls: ['./input-caixa.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class InputCaixaComponent implements OnInit {
 
