@@ -1,6 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import { PessoaModel } from 'src/app/model/pessoa.model.component';
 import { ChangeDetectionStrategy } from '@angular/core';
+
+export interface FormaPagamento {
+  value: string;
+  viewValue: string;
+}
 
 @Component({
   selector: 'input-caixa-CDM',
@@ -9,34 +13,14 @@ import { ChangeDetectionStrategy } from '@angular/core';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class InputCaixaComponent implements OnInit {
+  selectedValue: string;
 
-  quantidade : number;
-  text: string;
-  pessoasResultado: string[];
-  pessoas: string[];
+  formasPagamento: FormaPagamento[] = [
+    {value: 'Cartao-0', viewValue: 'Cartão'},
+    {value: 'Dinheiro-1', viewValue: 'Dinheiro'}
+  ];
 
   constructor() { }
-  
-  ngOnInit() {
-    this.MontePessoas();
-  }
 
-  MontePessoas() {
-    let pessoa1= new PessoaModel();
-    pessoa1.nome = "João";
-    pessoa1.cpf = "123456789";
-
-    let pessoa = new PessoaModel();
-    pessoa.nome = "Raimundis";
-    pessoa.cpf = "987654321";
-
-    this.pessoas.push(pessoa1.nome);
-    this.pessoas.push(pessoa.nome);
-  }
-
-  search(event): void {
-    this.pessoasResultado = [];
-    this.pessoasResultado = this.pessoas.filter(c => c.startsWith(event.query));
-  }
-
+  ngOnInit() {}
 }

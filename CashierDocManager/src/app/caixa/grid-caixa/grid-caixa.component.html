@@ -1,29 +1,30 @@
 <form>
-    <div class="box-tabela">
-            <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+        <p class="p-titulo">Produtos</p>
+        <div class="box-tabela">
+                <table mat-table [dataSource]="dataSource">
 
-                    <ng-container matColumnDef="ID">
-                            <th mat-header-cell *matHeaderCellDef> ID </th>
-                            <td mat-cell *matCellDef="let element"> {{element.id}} </td>
-                    </ng-container>
+                        <ng-container matColumnDef="ID">
+                                <th mat-header-cell *matHeaderCellDef> ID </th>
+                                <td mat-cell *matCellDef="let element"> {{element.id}} </td>
+                        </ng-container>
 
-                    <ng-container matColumnDef="Produto">
-                            <th mat-header-cell *matHeaderCellDef> Produto </th>
-                            <td mat-cell *matCellDef="let element"> {{element.produto}} </td>
-                    </ng-container>
+                        <ng-container matColumnDef="Produto">
+                                <th mat-header-cell *matHeaderCellDef> Produto </th>
+                                <td mat-cell *matCellDef="let element"> {{element.produto}} </td>
+                        </ng-container>
 
-                    <ng-container matColumnDef="Valor">
-                            <th mat-header-cell *matHeaderCellDef> Valor </th>
-                            <td mat-cell *matCellDef="let element"> {{element.valor}} </td>
-                    </ng-container>
+                        <ng-container matColumnDef="Valor">
+                                <th mat-header-cell *matHeaderCellDef> Valor </th>
+                                <td mat-cell *matCellDef="let element"> {{element.valor}} </td>
+                        </ng-container>
 
-                    <tr mat-header-row *matHeaderRowDef="colunas"></tr>
-                    <tr mat-row *matRowDef="let row; columns: colunas;"></tr>
-                 
-            </table>
-    
-            <mat-paginator [length]="100" [pageSize]="10" [pageSizeOptions]="[5, 10, 25, 100]">
-            </mat-paginator>
+                        <tr mat-header-row *matHeaderRowDef="colunas"></tr>
+                        <tr mat-row *matRowDef="let row; columns: colunas;"></tr>
 
-    </div>
+                </table>
+
+                <mat-paginator [length]="100" [pageSize]="10" [pageSizeOptions]="[5, 10, 25, 100]">
+                </mat-paginator>
+
+        </div>
 </form>

@@ -1,0 +1,109 @@
+<section class="input-caixa">
+    <div class="row">
+        <div class="col-lg-8 col-md-8 col-sm-12">
+            <p class="p-titulo">Geral</p>
+            <div class="col-lg-12 col-md-10 col-sm-12">
+                <mat-form-field>
+                    <input matInput placeholder="Cliente">
+                </mat-form-field>
+
+                <div class="row">
+                    <div class="col-lg-8 col-md-6">
+                        <mat-form-field>
+                            <input matInput placeholder="Produto">
+                        </mat-form-field>
+                    </div>
+                    <div class="col-lg-4 col-md-12">
+                        <mat-form-field>
+                            <input matInput placeholder="Quantidade">
+                        </mat-form-field>
+                    </div>
+                </div>
+                <p class="p-titulo">Valores</p>
+                <div class="row">
+                    <div class="col-lg-4 col-md-6">
+                        <mat-form-field>
+                            <input matInput currencyMask placeholder="Preço"
+                                [options]="{ prefix: 'R$ ', thousands: '.', decimal: ',' }">
+                        </mat-form-field>
+                    </div>
+                    <div class="col-lg-4 col-md-6">
+                        <mat-form-field>
+                            <input matInput currencyMask placeholder="Juros"
+                                [options]="{ prefix: 'R$ ', thousands: '.', decimal: ',' }">
+                        </mat-form-field>
+                    </div>
+                    <div class="col-lg-4 col-md-6">
+                        <mat-form-field>
+                            <input matInput currencyMask placeholder="Multa"
+                                [options]="{ prefix: 'R$ ', thousands: '.', decimal: ',' }">
+                        </mat-form-field>
+                    </div>
+                    <div class="col-lg-4 col-md-6">
+                        <mat-form-field>
+                            <input matInput currencyMask placeholder="Desconto"
+                                [options]="{ prefix: 'R$ ', thousands: '.', decimal: ',' }">
+                        </mat-form-field>
+                    </div>
+                </div>
+                <p class="p-titulo">Pagamento</p>
+                <div class="row">
+                    <div class="col-lg-8 col-md-12">
+                        <mat-form-field>
+                            <mat-label>Forma de Pagamento</mat-label>
+                            <mat-select name="formaPagamento">
+                                <mat-option *ngFor="let forma of formasPagamento" [value]="forma.value">
+                                    {{forma.viewValue}}
+                                </mat-option>
+                            </mat-select>
+                        </mat-form-field>
+                    </div>
+                    <div class="col-lg-4 col-md-12">
+                        <mat-form-field>
+                            <input matInput placeholder="Número de parcelas">
+                        </mat-form-field>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        <div class="col-lg-4 col-md-4 col-sm-12">
+            <p class="p-titulo">Resumo</p>
+            <mat-card class="card-no-shadow">
+                <div class="row row-resumo d-flex justify-content-between">
+                    <p class="p-resumo-titulo">Subtotal:</p>
+                    <p class="p-resumo-valor">0,00</p>
+                </div>
+                <div class="row row-resumo d-flex justify-content-between">
+                    <p class="p-resumo-titulo">Juros:</p>
+                    <input matInput currencyMask placeholder="0,00" class="input-resumo"
+                        [options]="{ prefix: 'R$ ', thousands: '.', decimal: ',' }">
+                </div>
+                <div class="row row-resumo d-flex justify-content-between">
+                    <p class="p-resumo-titulo">Multa:</p>
+                    <input matInput currencyMask placeholder="0,00" class="input-resumo"
+                        [options]="{ prefix: 'R$ ', thousands: '.', decimal: ',' }">
+                </div>
+                <div class="row row-resumo d-flex justify-content-between">
+                    <p class="p-resumo-titulo">Desconto:</p>
+                    <input matInput currencyMask placeholder="0,00" class="input-resumo"
+                        [options]="{ prefix: 'R$ ', thousands: '.', decimal: ',' }">
+                </div>
+                <div class="row row-resumo d-flex justify-content-between">
+                    <p class="p-resumo-titulo">Total:</p>
+                    <p class="p-resumo-valor">0,00</p>
+                </div>
+            </mat-card>
+        </div>
+        <div class="col-lg-8 col-md-8 col-sm-8">
+            <div class="row">
+                <div class="col-lg-6 col-md-6 col-sm-6 btn-limpar">
+                    <button type="button" mat-raised-button color="warn">Limpar</button>
+                </div>
+                <div class="col-lg-6 col-md-6 col-sm-6 btn-adicionar">
+                    <button type="button" mat-raised-button color="primary">Adicionar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
