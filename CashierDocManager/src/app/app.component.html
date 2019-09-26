@@ -1,10 +1,23 @@
 <mat-toolbar>
+  <!-- Botão Logo -->
   <button mat-fab color="warn" routerLink="">CDM</button>
 
-
+  <!-- Modulo Cadastros Básicos -->
   <button mat-button [matMenuTriggerFor]="cadastro" class="button-position">Cadastros</button>
   <mat-menu #cadastro="matMenu">
-    <button mat-menu-item routerLink="usuarios">Usuários</button>
+    <button mat-menu-item [matMenuTriggerFor]="usuarios">Usuários</button>
+    <button mat-menu-item [matMenuTriggerFor]="empresa">Empresa</button>
+    <button mat-menu-item routerLink="">Produto</button>
+  </mat-menu>
+
+  <mat-menu #usuarios="matMenu">
+    <button mat-menu-item routerLink="usuarios">Cliente</button>
+    <button mat-menu-item routerLink="">Fornecedor</button>
+  </mat-menu>
+
+  <mat-menu #empresa="matMenu">
+    <button mat-menu-item routerLink="">Matriz</button>
+    <button mat-menu-item routerLink="">Filiais</button>
   </mat-menu>
 
   <button mat-button [matMenuTriggerFor]="menu" class="button-menu">Menu</button>
