@@ -1,7 +1,11 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { ReactiveFormsModule } from '@angular/forms';
+
+/** Components */
 import { UsusariosRoutingModule } from './usuarios.routing.module';
 import { UsuariosComponent } from './usuarios/usuarios.component';
+
 
 
 
@@ -11,6 +15,7 @@ import { UsuariosComponent } from './usuarios/usuarios.component';
   ],
   imports: [
     CommonModule,
+    ReactiveFormsModule,
     UsusariosRoutingModule 
   ]
 })
