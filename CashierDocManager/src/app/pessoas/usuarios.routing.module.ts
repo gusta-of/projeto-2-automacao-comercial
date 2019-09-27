@@ -1,9 +1,9 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule, Router } from '@angular/router';
-import { UsuariosComponent } from './usuarios/usuarios.component';
+import { OperadorComponent } from './operador/operador.component';
 
 const usuariosRouting: Routes = [ 
-    {path: 'usuarios', component: UsuariosComponent}
+    {path: 'operador', component: OperadorComponent}
 ];
 
 @NgModule({
