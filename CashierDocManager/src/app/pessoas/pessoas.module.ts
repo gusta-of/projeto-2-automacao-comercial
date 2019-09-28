@@ -1,16 +1,21 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { ReactiveFormsModule } from '@angular/forms';
+
+/** Components */
 import { UsusariosRoutingModule } from './usuarios.routing.module';
-import { UsuariosComponent } from './usuarios/usuarios.component';
+import { OperadorComponent } from './operador/operador.component';
+
 
 
 
 @NgModule({
   declarations: [
-    UsuariosComponent
+    OperadorComponent
   ],
   imports: [
     CommonModule,
+    ReactiveFormsModule,
     UsusariosRoutingModule 
   ]
 })
