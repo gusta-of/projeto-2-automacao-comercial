@@ -12,7 +12,6 @@ export interface UsuarioComponentData {
   nascimento: Date;
   idade: number;
   email: string;
-  EhOperador: Boolean;
 }
 
 @Component({
