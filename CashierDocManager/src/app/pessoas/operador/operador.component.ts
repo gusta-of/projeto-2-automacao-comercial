@@ -1,4 +1,4 @@
-import { Component, Output, EventEmitter, HostListener, ChangeDetectionStrategy } from '@angular/core';
+import { Component, Output, EventEmitter, HostListener, ChangeDetectionStrategy, Input } from '@angular/core';
 import { FormGroup, ControlValueAccessor, FormBuilder, Validators } from '@angular/forms';
 
 /** 
@@ -23,6 +23,8 @@ export interface UsuarioComponentData {
 })
 export class OperadorComponent implements ControlValueAccessor {
 
+  @Input() isReadOnly = false;
+
   /** Representa o formulário na template */
   _form: FormGroup;
 
@@ -30,7 +32,7 @@ export class OperadorComponent implements ControlValueAccessor {
   @Output()
   value: EventEmitter<UsuarioComponentData> = new EventEmitter<UsuarioComponentData>();
 
-  /** Propriedades que guardam uma função */
+  /** Referências para as funções do ControlValueAccessor passadas pelo angular */
   private _onChange: (obj: UsuarioComponentData) => void;
   @HostListener('focusout') 
   private _onTouched: () => void;
@@ -71,7 +73,7 @@ export class OperadorComponent implements ControlValueAccessor {
   }
 
   setDisabledState?(isDisabled: boolean): void {
-    throw new Error("Method not implemented.");
+    this.isReadOnly = isDisabled;
   }
 
   /** Função que vai emitir os dados do formulário para fora */
