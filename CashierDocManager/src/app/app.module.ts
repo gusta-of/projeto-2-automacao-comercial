@@ -4,13 +4,13 @@ import { MatMenuModule } from '@angular/material/menu';
 import { MatButtonModule } from '@angular/material/button';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatIconModule } from '@angular/material/icon';
+import { ReactiveFormsModule } from '@angular/forms';
 
 import { AppComponent } from './app.component';
 import { CaixaModule } from './caixa/caixa.module';
 import { HomePageComponent } from './home-page/home-page.component';
 import { AppRoutingModule } from './app.routing.module';
 import { PessoasModule } from './pessoas/pessoas.module';
-
 
 @NgModule({
   declarations: [
@@ -20,6 +20,7 @@ import { PessoasModule } from './pessoas/pessoas.module';
   imports: [
     CaixaModule,
     BrowserAnimationsModule,
+    ReactiveFormsModule,
     MatMenuModule,
     MatButtonModule,
     MatToolbarModule,
