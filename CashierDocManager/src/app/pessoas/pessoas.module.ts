@@ -5,6 +5,8 @@ import { ReactiveFormsModule } from '@angular/forms';
 /** Components */
 import { UsusariosRoutingModule } from './usuarios.routing.module';
 import { OperadorComponent } from './operador/operador.component';
+import { OperadorModule } from './operador/operador.module';
+
 
 
 
@@ -17,6 +19,8 @@ import { OperadorComponent } from './operador/operador.component';
     CommonModule,
     ReactiveFormsModule,
     UsusariosRoutingModule 
+    UsusariosRoutingModule,
+    OperadorModule
   ]
 })
 export class PessoasModule { }

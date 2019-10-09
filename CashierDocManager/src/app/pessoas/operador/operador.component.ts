@@ -33,6 +33,7 @@ export class OperadorComponent implements ControlValueAccessor {
   @Output()
   value: EventEmitter<UsuarioComponentData> = new EventEmitter<UsuarioComponentData>();
 
+
   /** Referências para as funções do ControlValueAccessor passadas pelo angular */
   private _onChange: (obj: UsuarioComponentData) => void;
   @HostListener('focusout') 
