@@ -23,6 +23,7 @@ export interface UsuarioComponentData {
 })
 export class OperadorComponent implements ControlValueAccessor {
 
+  //Propriedade para alterar estado do formalário se pode ser editado ou não.
   @Input() isReadOnly = false;
 
   /** Representa o formulário na template */
