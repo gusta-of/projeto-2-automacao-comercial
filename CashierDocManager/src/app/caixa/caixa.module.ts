@@ -13,7 +13,6 @@ import { GridCaixaComponent } from './grid-caixa/grid-caixa.component';
 import { CaixaMenuComponent } from './caixa-menu/caixa-menu.component';
 import { InputCaixaComponent } from './input-caixa/input-caixa.component';
 import { CardsComponent } from './cards/cards.component';
-import { VendasService } from './vendas.service';
 import { CaixaComponent } from './caixa.component';
 import { CaixaRoutingModule } from './caixa.routing.module';
 
