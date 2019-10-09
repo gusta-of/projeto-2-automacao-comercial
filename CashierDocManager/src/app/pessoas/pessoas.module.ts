@@ -12,13 +12,11 @@ import { OperadorModule } from './operador/operador.module';
 
 
 @NgModule({
-  declarations: [
-    OperadorComponent
-  ],
+  declarations: [],
   imports: [
     CommonModule,
     ReactiveFormsModule,
-    UsusariosRoutingModule 
+    UsusariosRoutingModule,
     UsusariosRoutingModule,
     OperadorModule
   ]
