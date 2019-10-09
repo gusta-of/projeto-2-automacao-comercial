@@ -7,12 +7,10 @@ import { FormGroup, ControlValueAccessor, FormBuilder, Validators } from '@angul
 export interface UsuarioComponentData {
   id: number;
   nome: string;
-  sobrenome: string;
   cpf: string;
   nascimento: Date;
   idade: number;
   email: string;
-  EhOperador: Boolean;
 }
 
 @Component({
@@ -42,12 +40,10 @@ export class OperadorComponent implements ControlValueAccessor {
   constructor(_fb: FormBuilder) {
     this._form = _fb.group({
       nome: [null, Validators.required],
-      sobrenome: [null, Validators.required],
       cpf: [null, Validators.required],
       nascimento: [null, Validators.required],
       idade: [null, Validators.required],
-      email: [null],
-      EhOperador: [false]
+      email: [null]
     });
 
     // Observable
