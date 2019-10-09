@@ -8,4 +8,34 @@
             <button mat-button>Novo</button>
         </mat-toolbar>
     </div>
+
+    <mat-card class="card-cadastro">
+
+        <div class="box-section-cadastro">
+
+            <div class="box-info-pessoal">
+                <mat-form-field class="nome" floatLabel="always">
+                    <mat-label>Nome</mat-label>
+                    <input [readOnly]="readonly" matInput formControlName="nome" placeholder="Digite o nome completo!"
+                        required>
+                </mat-form-field>
+
+                <mat-form-field class="cpf" floatLabel="always">
+                    <mat-label>CPF/CNPJ</mat-label>
+                    <input [readOnly]="readonly" matInput formControlName="cpf" placeholder="Digite o CPF/CNPJ!"
+                        required>
+                </mat-form-field>
+            </div>
+
+            <div class="box-info-pessoal">
+                <mat-form-field class="email" floatLabel="always">
+                    <mat-label>Email</mat-label>
+                    <input [readOnly]="readonly" matInput formControlName="email" placeholder="Digite o Email!">
+                </mat-form-field>
+            </div>
+
+        </div>
+        
+    </mat-card>
+
 </form>

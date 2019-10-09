@@ -4,10 +4,9 @@ import { MatInputModule } from '@angular/material/input';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatButtonModule } from '@angular/material/button';
 import { ReactiveFormsModule } from '@angular/forms';
+import { MatCardModule } from '@angular/material/card';
 
 import { OperadorComponent } from './operador.component';
-
-
 
 @NgModule({
   declarations: [
@@ -18,7 +17,8 @@ import { OperadorComponent } from './operador.component';
     MatInputModule,
     MatToolbarModule,
     MatButtonModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    MatCardModule
   ]
 })
 export class OperadorModule { }
