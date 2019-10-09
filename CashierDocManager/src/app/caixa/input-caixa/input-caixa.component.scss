@@ -1,26 +1,52 @@
-.ui-float-label{
-    margin-top: 4%;
-    margin-left: 2%;
-}
-.row-inputs.row{
-    display: flex;
-    flex-direction: row;
-    margin-top: 1%;
-    margin-left: 2%;
+.mat-form-field{
+    width: 100%;
 }
 
-.row-sessaoproduto{
-    display: flex;
-    flex-direction: row;
-    margin-left: 2%;
+.card-no-shadow{
+    margin-top: 6%;
+    box-shadow: 0px 0px 0px 0px !important;
 }
 
-.box-valor{
-    margin-left: 10%;
-    margin-top: 17px;
+.p-titulo{
+    color: lightslategray;
+    text-align: center;
+    margin: 0px;
+    font-weight: 100;
+    padding-top: 2%;
+    padding-bottom: 2%;
 }
 
-.box-quantidade{
-    margin-left: 2%;
-    margin-top: 44px;
+.btn-adicionar{
+    text-align: right;
+    padding-top: 2%;
+    padding-bottom: 2%;
+}
+
+.btn-limpar{
+    padding-top: 2%;
+    padding-bottom: 2%;
+}
+
+.row-resumo{
+    padding-top: 2%;
+    padding-left: 15px;
+    padding-right: 15px;
+    padding-bottom: 2%;
+}
+
+.p-resumo-titulo{
+    color: dimgray;
+    margin: 0px;
+    font-weight: 500;
+}
+
+.p-resumo-valor{
+    color: dimgray;
+    margin: 0px;
+    font-weight: 200;
+}
+
+.input-resumo{
+    margin: 0px;  
+    width: 50%;  
 }
