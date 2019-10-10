@@ -34,8 +34,24 @@
                 </mat-form-field>
             </div>
 
+            <div class="box-info-pessoal">
+                <mat-form-field floatLabel="always">
+                    <mat-label>Data de nascimento</mat-label>
+                    <input [readOnly]="readonly" matInput formControlName="nascimento" placeholder="Seleciona a Data!"
+                        required>
+                    <mat-datepicker-toggle matSuffix [for]="dp"></mat-datepicker-toggle>
+                    <mat-datepicker #dp></mat-datepicker>
+                </mat-form-field>
+                <button mat-button (click)="clearData()">Limpar</button>
+
+                <mat-form-field class="idade" floatLabel="always">
+                    <mat-label>Idade</mat-label>
+                    <input [readOnly]="readonly" type="number" formControlName="idade" matInput placeholder="Infome a idade!" required>
+                </mat-form-field>
+            </div>
+
         </div>
-        
+
     </mat-card>
 
 </form>
