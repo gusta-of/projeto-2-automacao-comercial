@@ -37,8 +37,7 @@ export class OperadorComponent implements ControlValueAccessor {
 
   /** Referências para as funções do ControlValueAccessor passadas pelo angular */
   private _onChange: (obj: UsuarioComponentData) => void;
-  @HostListener('focusout') 
-  private _onTouched: () => void;
+  @HostListener('blur') _onTouched: () => void;
   //Propriedade para alterar estado do formalário se pode ser editado ou não.
   @Input() isReadOnly = false;
 
@@ -76,7 +75,11 @@ export class OperadorComponent implements ControlValueAccessor {
   }
 
   setDisabledState?(isDisabled: boolean): void {
-    this.isReadOnly = isDisabled;
+    if (isDisabled) {
+      this._form.disable();
+    } else {
+      this._form.enable();
+    }
   }
 
   /** Função que vai emitir os dados do formulário para fora */
@@ -88,6 +91,8 @@ export class OperadorComponent implements ControlValueAccessor {
 
     const dados: UsuarioComponentData = {...this._form.value};
     this.value.emit(dados);
+
+    console.log(dados);
   }
 
   /** Função para limpar a data */
