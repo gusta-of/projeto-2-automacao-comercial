@@ -5,6 +5,8 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatButtonModule } from '@angular/material/button';
 import { ReactiveFormsModule } from '@angular/forms';
 import { MatCardModule } from '@angular/material/card';
+import {MatDatepickerModule} from '@angular/material/datepicker';
+import { MAT_DATE_LOCALE } from '@angular/material';
 
 import { OperadorComponent } from './operador.component';
 
@@ -18,7 +20,11 @@ import { OperadorComponent } from './operador.component';
     MatToolbarModule,
     MatButtonModule,
     ReactiveFormsModule,
-    MatCardModule
-  ]
+    MatCardModule,
+    MatDatepickerModule
+  ],
+  providers: [
+    {provide: MAT_DATE_LOCALE, useValue: 'pt-BR'},
+  ],
 })
 export class OperadorModule { }

@@ -5,7 +5,7 @@
 
     <div class="box-tollbar">
         <mat-toolbar color="warn" role="heading">
-            <button mat-button>Novo</button>
+            <button mat-button (click)="_emiteDadosDoFormulario()" [disabled]="_form.invalid">Novo</button>
         </mat-toolbar>
     </div>
 
@@ -34,8 +34,28 @@
                 </mat-form-field>
             </div>
 
+            <div class="box-info-pessoal">
+                <mat-form-field floatLabel="always">
+                    <mat-label>Data de nascimento</mat-label>
+                    <input matInput [matDatepicker]="dp" formControlName="nascimento" placeholder="Data de Nascimento" required>
+                    <mat-datepicker-toggle matSuffix [for]="dp"></mat-datepicker-toggle>
+                    <mat-datepicker #dp></mat-datepicker>
+                </mat-form-field>
+                <button mat-button (click)="clearData()">Limpar</button>
+
+                <mat-form-field class="idade" floatLabel="always">
+                    <mat-label>Idade</mat-label>
+                    <input [readOnly]="readonly" type="number" formControlName="idade" matInput
+                        placeholder="Infome a idade!" required>
+                </mat-form-field>
+            </div>
+
         </div>
-        
+
     </mat-card>
+
+    <pre>
+        {{_form.value | json}}
+    </pre>
 
 </form>

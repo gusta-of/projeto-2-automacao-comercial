@@ -1,5 +1,7 @@
 import { Component, Output, EventEmitter, HostListener, ChangeDetectionStrategy, Input } from '@angular/core';
 import { FormGroup, ControlValueAccessor, FormBuilder, Validators } from '@angular/forms';
+import {MAT_MOMENT_DATE_FORMATS, MomentDateAdapter} from '@angular/material-moment-adapter';
+import {DateAdapter, MAT_DATE_FORMATS, MAT_DATE_LOCALE} from '@angular/material/core';
 
 /** 
  * Representa a entidade manipulada no formulário 
@@ -17,13 +19,14 @@ export interface UsuarioComponentData {
   selector: 'app-operador',
   templateUrl: './operador.component.html',
   styleUrls: ['./operador.component.scss'],
+  providers: [
+    {provide: MAT_DATE_LOCALE, useValue: 'pt-BR'},
+    {provide: DateAdapter, useClass: MomentDateAdapter, deps: [MAT_DATE_LOCALE]},
+    {provide: MAT_DATE_FORMATS, useValue: MAT_MOMENT_DATE_FORMATS},
+  ],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class OperadorComponent implements ControlValueAccessor {
-
-  //Propriedade para alterar estado do formalário se pode ser editado ou não.
-  @Input() isReadOnly = false;
-
   /** Representa o formulário na template */
   _form: FormGroup;
 
@@ -34,10 +37,11 @@ export class OperadorComponent implements ControlValueAccessor {
 
   /** Referências para as funções do ControlValueAccessor passadas pelo angular */
   private _onChange: (obj: UsuarioComponentData) => void;
-  @HostListener('focusout') 
-  private _onTouched: () => void;
+  @HostListener('blur') _onTouched: () => void;
+  //Propriedade para alterar estado do formalário se pode ser editado ou não.
+  @Input() isReadOnly = false;
 
-  constructor(_fb: FormBuilder) {
+  constructor(_fb: FormBuilder, private _adapter: DateAdapter<any>) {
     this._form = _fb.group({
       nome: [null, Validators.required],
       cpf: [null, Validators.required],
@@ -71,7 +75,11 @@ export class OperadorComponent implements ControlValueAccessor {
   }
 
   setDisabledState?(isDisabled: boolean): void {
-    this.isReadOnly = isDisabled;
+    if (isDisabled) {
+      this._form.disable();
+    } else {
+      this._form.enable();
+    }
   }
 
   /** Função que vai emitir os dados do formulário para fora */
@@ -83,5 +91,12 @@ export class OperadorComponent implements ControlValueAccessor {
 
     const dados: UsuarioComponentData = {...this._form.value};
     this.value.emit(dados);
+
+    console.log(dados);
+  }
+
+  /** Função para limpar a data */
+  clearData() {
+    this._form.get('nascimento').setValue(null);
   }
 }
