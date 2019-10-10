@@ -11,6 +11,7 @@ import { CaixaModule } from './caixa/caixa.module';
 import { HomePageComponent } from './home-page/home-page.component';
 import { AppRoutingModule } from './app.routing.module';
 import { PessoasModule } from './pessoas/pessoas.module';
+import { MarcaModule } from './cadastros/marca/marca.module';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,8 @@ import { PessoasModule } from './pessoas/pessoas.module';
     MatIconModule,
     CaixaModule,
     AppRoutingModule,
-    PessoasModule
+    PessoasModule,
+    MarcaModule
   ],
   bootstrap: [AppComponent]
 })
