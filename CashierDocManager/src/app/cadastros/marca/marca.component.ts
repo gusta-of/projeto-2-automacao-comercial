@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormBuilder, Validators, ɵangular_packages_forms_forms_d } from '@angular/forms';
+import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-marca',
@@ -16,8 +16,8 @@ export class MarcaComponent implements OnInit {
   //Propriedade que irá atualizar os valores da tabela de marca
   valores: any[][] = [];
 
-  constructor(_fb: FormBuilder) { 
-    this._form = _fb.group({
+  constructor(fb: FormBuilder) { 
+    this._form = fb.group({
       descricao: [null, Validators.required]
     })
   }
@@ -29,7 +29,7 @@ export class MarcaComponent implements OnInit {
     if(this._form.valid){
       let descricao = this._form.get('descricao');
       this.valores.push([descricao.value]);
-      descricao.setValue('');
+      this._form.reset();
     }
   }
 
