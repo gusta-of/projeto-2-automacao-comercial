@@ -97,6 +97,6 @@ export class OperadorComponent implements ControlValueAccessor {
 
   /** Função para limpar a data */
   clearData() {
-    this._adapter.setLocale('br');
+    this._form.get('nascimento').setValue(null);
   }
 }

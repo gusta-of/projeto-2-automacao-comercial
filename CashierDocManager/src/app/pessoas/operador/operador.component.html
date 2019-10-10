@@ -37,8 +37,7 @@
             <div class="box-info-pessoal">
                 <mat-form-field floatLabel="always">
                     <mat-label>Data de nascimento</mat-label>
-                    <input [readOnly]="readonly" matInput formControlName="nascimento" placeholder="Seleciona a Data!"
-                        required>
+                    <input matInput [matDatepicker]="dp" formControlName="nascimento" placeholder="Data de Nascimento" required>
                     <mat-datepicker-toggle matSuffix [for]="dp"></mat-datepicker-toggle>
                     <mat-datepicker #dp></mat-datepicker>
                 </mat-form-field>
