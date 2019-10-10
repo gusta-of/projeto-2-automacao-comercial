@@ -1,0 +1,54 @@
+<section class="container">
+    <h1 class="font-titulo">Cadastro de Produto</h1>
+    <mat-card class="card-marca">
+        <form [formGroup]="_form" (ngSubmit)="onSubmit()">
+            <div class="col">
+                <div class="row">
+                    <div class="col-2">
+                        <mat-form-field>
+                            <input matInput placeholder="Identificador" formControlName="identificador">
+                        </mat-form-field>
+                    </div>
+                    <div class="col-10">
+                        <mat-form-field>
+                            <input matInput placeholder="Descrição" formControlName="descricao">
+                        </mat-form-field>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-4">
+                        <mat-form-field>
+                            <mat-label>Marca</mat-label>
+                            <mat-select formControlName="marca">
+                                <mat-option *ngFor="let marca of marcas" [value]="marca.value">
+                                    {{marca.viewValue}}
+                                </mat-option>
+                            </mat-select>
+                        </mat-form-field>
+                    </div>
+                    <div class="col-4">
+                        <mat-form-field>
+                            <mat-label>Unidade de Medida</mat-label>
+                            <mat-select formControlName="unidadeMedida">
+                                <mat-option *ngFor="let unidade of unidades" [value]="unidade.value">
+                                    {{unidade.viewValue}}
+                                </mat-option>
+                            </mat-select>
+                        </mat-form-field>
+                    </div>
+                    <div class="col-4">
+                        <mat-form-field>
+                            <input matInput type="number" placeholder="Quantidade Mínima"
+                                formControlName="qtdeMinimaEstoque">
+                        </mat-form-field>
+                    </div>
+                </div>
+                <div class="d-flex flex-row-reverse">
+                    <button type="submit" class="btn btn-primary">Confirmar</button>
+                </div>
+            </div>
+            <!-- <cadastros-CDM class="m-2" [colunas]="colunas" [valores]="valores">
+                </cadastros-CDM> -->
+        </form>
+    </mat-card>
+</section>

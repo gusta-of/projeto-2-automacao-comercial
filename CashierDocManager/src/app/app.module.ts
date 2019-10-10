@@ -12,11 +12,13 @@ import { HomePageComponent } from './home-page/home-page.component';
 import { AppRoutingModule } from './app.routing.module';
 import { PessoasModule } from './pessoas/pessoas.module';
 import { MarcaModule } from './cadastros/marca/marca.module';
+import { ProdutoComponent } from './cadastros/produto/produto.component';
+import { ProdutoModule } from './cadastros/produto/produto.module';
 
 @NgModule({
   declarations: [
     AppComponent,
-    HomePageComponent
+    HomePageComponent,
   ],
   imports: [
     CaixaModule,
@@ -26,10 +28,10 @@ import { MarcaModule } from './cadastros/marca/marca.module';
     MatButtonModule,
     MatToolbarModule,
     MatIconModule,
-    CaixaModule,
     AppRoutingModule,
     PessoasModule,
-    MarcaModule
+    MarcaModule,
+    ProdutoModule
   ],
   bootstrap: [AppComponent]
 })
