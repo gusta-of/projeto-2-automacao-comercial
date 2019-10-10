@@ -1,7 +1,12 @@
+<h1 class="font-titulo">Caixa</h1>
 <mat-card class="card-caixa">
-    <input-caixa-CDM></input-caixa-CDM>
-
-    <div>
-        <grid-caixa-CDM></grid-caixa-CDM>
-    </div>
+        <section class="col">
+                <form (onSubmit)="onSubmit()">
+                        <div class="d-flex justify-content-end">
+                                <button type="submit" class="btn btn-primary">Confirmar</button>
+                        </div>
+                        <input-caixa-CDM #input></input-caixa-CDM>
+                        <grid-caixa-CDM [lancamentos]="input.lancamentos"></grid-caixa-CDM>
+                </form>
+        </section>
 </mat-card>
