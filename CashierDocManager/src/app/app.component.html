@@ -4,11 +4,14 @@
   <button mat-fab color="warn" routerLink="">CDM</button>
 
   <!-- Modulo Cadastros Básicos -->
-  <button mat-button [matMenuTriggerFor]="cadastro" class="button-position">Cadastros</button>
+  
+  <button mat-button routerLink="caixa" class="button-position">Caixa</button>
+  <button mat-button [matMenuTriggerFor]="cadastro" class="button-menu">Cadastros</button>
   <mat-menu #cadastro="matMenu">
     <button mat-menu-item [matMenuTriggerFor]="usuarios">Usuários</button>
     <button mat-menu-item [matMenuTriggerFor]="empresa">Empresa</button>
-    <button mat-menu-item routerLink="">Produto</button>
+    <button mat-menu-item routerLink="produto">Produto</button>
+    <button mat-menu-item routerLink="marca">Marca</button>
   </mat-menu>
 
   <mat-menu #usuarios="matMenu">
@@ -24,11 +27,6 @@
     <button mat-menu-item routerLink="">Filiais</button>
   </mat-menu>
 
-  <button mat-button [matMenuTriggerFor]="menu" class="button-menu">Menu</button>
-  <mat-menu #menu="matMenu">
-
-    <button mat-menu-item routerLink="caixa">Caixa</button>
-  </mat-menu>
 </mat-toolbar>
 
 <div class="box-content">

@@ -6,9 +6,9 @@ import { MatButtonModule } from '@angular/material/button';
 import { ReactiveFormsModule } from '@angular/forms';
 import { MatCardModule } from '@angular/material/card';
 import {MatDatepickerModule} from '@angular/material/datepicker';
+import { MAT_DATE_LOCALE } from '@angular/material';
 
 import { OperadorComponent } from './operador.component';
-import { MAT_DATE_LOCALE } from '@angular/material';
 
 @NgModule({
   declarations: [

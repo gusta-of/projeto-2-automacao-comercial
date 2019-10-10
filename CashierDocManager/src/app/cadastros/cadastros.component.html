@@ -1,0 +1,26 @@
+<table class="table table-bordered table-sm ">
+    <thead>
+        <tr>
+            <th *ngFor="let col of colunas">
+                {{col}}
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let valor of valores">
+            <td *ngFor="let v of valor">
+                <span>{{v}}</span>
+            </td>
+            <td class="col-icon">
+                <button mat-icon-button color="red" type="button" class="icon-edit">
+                    <mat-icon>edit</mat-icon>
+                </button>
+            </td>
+            <td class="col-icon">
+                <button mat-icon-button color="primary" type="button" class="icon-edit" (click)="_onDelete(valor)">
+                    <mat-icon>delete_forever</mat-icon>
+                </button>
+            </td>
+        </tr>
+    </tbody>
+</table>
