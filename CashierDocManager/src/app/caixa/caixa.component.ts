@@ -9,9 +9,18 @@ import { ChangeDetectionStrategy } from '@angular/core';
 })
 export class CaixaComponent implements OnInit {
 
+  //Propriedade para salvar lançamentos adicionados na grid
+  lancamentos: any[];
+
+  colunas: string[]= ['Descrição', '', ''];
+
   constructor() { }
 
   ngOnInit() {
+  }
+
+  onSubmit(){
+    console.log(this.lancamentos)
   }
 
 }

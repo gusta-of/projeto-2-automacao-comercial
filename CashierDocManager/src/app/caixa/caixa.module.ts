@@ -7,22 +7,23 @@ import { MatCardModule } from '@angular/material/card';
 import { CurrencyMaskModule } from "ng2-currency-mask";
 import { MatButtonModule } from '@angular/material/button';
 import { MatSelectModule } from '@angular/material/select';
+import { FormsModule } from '@angular/forms';
+import { MatRadioModule } from '@angular/material/radio';
 
 /* Componentes */
 import { GridCaixaComponent } from './grid-caixa/grid-caixa.component';
-import { CaixaMenuComponent } from './caixa-menu/caixa-menu.component';
 import { InputCaixaComponent } from './input-caixa/input-caixa.component';
 import { CardsComponent } from './cards/cards.component';
 import { CaixaComponent } from './caixa.component';
 import { CaixaRoutingModule } from './caixa.routing.module';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
     GridCaixaComponent,
-    CaixaMenuComponent,
     CardsComponent,
     InputCaixaComponent,
-    CaixaComponent
+    CaixaComponent,
   ],
   imports: [
     CommonModule,
@@ -33,7 +34,10 @@ import { CaixaRoutingModule } from './caixa.routing.module';
     MatCardModule,
     CurrencyMaskModule,
     MatButtonModule,
-    MatSelectModule
+    MatSelectModule,
+    ReactiveFormsModule,
+    MatRadioModule,                
+    FormsModule
   ]
 })
 export class CaixaModule { }

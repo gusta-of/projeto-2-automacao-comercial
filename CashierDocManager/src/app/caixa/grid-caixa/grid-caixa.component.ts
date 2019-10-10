@@ -1,7 +1,5 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
-import { ProdutoModel } from 'src/app/model/produto.model.component';
+import { Component, OnInit, ViewChild, Input } from '@angular/core';
 import { MatPaginator, MatTableDataSource } from '@angular/material';
-import { VendasService } from '../vendas.service';
 import { ChangeDetectionStrategy } from '@angular/core';
 
 @Component({
@@ -11,24 +9,19 @@ import { ChangeDetectionStrategy } from '@angular/core';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class GridCaixaComponent implements OnInit {
-  /** Cria Array generico */
-  produtos: any[];
+
+  /** Cria Array generico para os lançamentos*/
+  @Input() lancamentos: any[] = [];
 
   /** Define as colunas da table */
-  colunas: string[] = ['ID', 'Produto', 'Valor'];
+  colunas: string[] = ['Produto', 'Valor'];
 
-   /** Propriedade data sorce da table, define o tipo e os elementos carregados */
-   dataSource: any;
-  
   /**Declara propriedade de paginação da data table */
-  @ViewChild(MatPaginator, {static: true}) paginator: MatPaginator;
+  @ViewChild(MatPaginator, { static: true }) paginator: MatPaginator;
 
-  constructor(private vendaService: VendasService) { }
+  constructor() { }
 
   ngOnInit() {
-    this.produtos = this.vendaService.getVendas();
-    this.dataSource = new MatTableDataSource<VendasService>(this.produtos);
-    this.dataSource.paginator = this.paginator;
   }
 
 }
