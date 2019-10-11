@@ -18,41 +18,13 @@
     border-radius: 15px;
 }
 
+.mat-form-field{
+    width: 100%;
+}
+
 .mat-toolbar.mat-warn.mat-toolbar-single-row{
     border-radius: 15px;
     height: 50px;
 }
 
-.box-section-cadastro{
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-    padding-top: 2%;
-}
 
-.box-info-pessoal{
-    display: flex;
-    flex-direction: row;
-    width: 100%;
-}
-
-.nome{
-    width: 70%;
-}
-
-.email{
-    width: 90%;
-}
-
-.cpf{
-    padding-left: 1%;
-    width: 20%;
-}
-
-.idade{
-    padding-left: 3%;
-}
-
-.mat-form-field {
-    margin-right: 12px;
-}

@@ -1,5 +1,5 @@
-import { Component, Output, EventEmitter, HostListener, ChangeDetectionStrategy, Input } from '@angular/core';
-import { FormGroup, ControlValueAccessor, FormBuilder, Validators } from '@angular/forms';
+import { Component, Output, EventEmitter, HostListener, ChangeDetectionStrategy, Input, ViewChild } from '@angular/core';
+import { FormGroup, ControlValueAccessor, FormBuilder, Validators, FormGroupDirective } from '@angular/forms';
 import {MAT_MOMENT_DATE_FORMATS, MomentDateAdapter} from '@angular/material-moment-adapter';
 import {DateAdapter, MAT_DATE_FORMATS, MAT_DATE_LOCALE} from '@angular/material/core';
 
@@ -40,6 +40,7 @@ export class OperadorComponent implements ControlValueAccessor {
   @HostListener('blur') _onTouched: () => void;
   //Propriedade para alterar estado do formalário se pode ser editado ou não.
   @Input() isReadOnly = false;
+  @ViewChild(FormGroupDirective, { static: true }) formGroupDirective: FormGroupDirective;
 
   constructor(_fb: FormBuilder, private _adapter: DateAdapter<any>) {
     this._form = _fb.group({
@@ -97,6 +98,6 @@ export class OperadorComponent implements ControlValueAccessor {
 
   /** Função para limpar a data */
   clearData() {
-    this._form.get('nascimento').setValue(null);
+    this.formGroupDirective.resetForm();
   }
 }
