@@ -6,51 +6,62 @@
     <div class="box-tollbar">
         <mat-toolbar color="warn" role="heading">
             <button mat-button (click)="_emiteDadosDoFormulario()" [disabled]="_form.invalid">Novo</button>
+            <button mat-button (click)="clearData()">Limpar</button>
         </mat-toolbar>
     </div>
 
     <mat-card class="card-cadastro">
+        <section class="col">
 
-        <div class="box-section-cadastro">
+            <div class="row">
 
-            <div class="box-info-pessoal">
-                <mat-form-field class="nome" floatLabel="always">
-                    <mat-label>Nome</mat-label>
-                    <input [readOnly]="readonly" matInput formControlName="nome" placeholder="Digite o nome completo!"
-                        required>
-                </mat-form-field>
+                <div class="col-lg-8 col-md-8 col-sm-12">
+                    <mat-form-field floatLabel="always">
+                        <mat-label>Nome</mat-label>
+                        <input [readOnly]="readonly" matInput formControlName="nome"
+                            placeholder="Digite o nome completo!" required>
+                    </mat-form-field>
+                </div>
 
-                <mat-form-field class="cpf" floatLabel="always">
-                    <mat-label>CPF/CNPJ</mat-label>
-                    <input [readOnly]="readonly" matInput formControlName="cpf" placeholder="Digite o CPF/CNPJ!"
-                        required>
-                </mat-form-field>
+                <div class="col-lg-4 col-md-4 col-sm-12">
+                    <mat-form-field floatLabel="always">
+                        <mat-label>CPF/CNPJ</mat-label>
+                        <input [readOnly]="readonly" matInput formControlName="cpf" placeholder="Digite o CPF/CNPJ!"
+                            required>
+                    </mat-form-field>
+                </div>
             </div>
 
-            <div class="box-info-pessoal">
-                <mat-form-field class="email" floatLabel="always">
-                    <mat-label>Email</mat-label>
-                    <input [readOnly]="readonly" matInput formControlName="email" placeholder="Digite o Email!">
-                </mat-form-field>
+            <div class="row">
+                <div class="col-sm-12">
+                    <mat-form-field floatLabel="always">
+                        <mat-label>Email</mat-label>
+                        <input [readOnly]="readonly" matInput formControlName="email" placeholder="Digite o Email!">
+                    </mat-form-field>
+                </div>
             </div>
 
-            <div class="box-info-pessoal">
-                <mat-form-field floatLabel="always">
-                    <mat-label>Data de nascimento</mat-label>
-                    <input matInput [matDatepicker]="dp" formControlName="nascimento" placeholder="Data de Nascimento" required>
-                    <mat-datepicker-toggle matSuffix [for]="dp"></mat-datepicker-toggle>
-                    <mat-datepicker #dp></mat-datepicker>
-                </mat-form-field>
-                <button mat-button (click)="clearData()">Limpar</button>
+            <div class="row">
+                <div class="col-lg-5 col-md-6 col-sm-12">
+                    <mat-form-field floatLabel="always">
+                        <mat-label>Data de nascimento</mat-label>
+                        <input matInput [matDatepicker]="dp" formControlName="nascimento"
+                            placeholder="Data de Nascimento" required>
+                        <mat-datepicker-toggle matSuffix [for]="dp"></mat-datepicker-toggle>
+                        <mat-datepicker #dp></mat-datepicker>
+                    </mat-form-field>
+                </div>
 
-                <mat-form-field class="idade" floatLabel="always">
-                    <mat-label>Idade</mat-label>
-                    <input [readOnly]="readonly" type="number" formControlName="idade" matInput
-                        placeholder="Infome a idade!" required>
-                </mat-form-field>
+                <div class="col-lg-3 col-md-6 col-sm-12">
+                    <mat-form-field floatLabel="always">
+                        <mat-label>Idade</mat-label>
+                        <input [readOnly]="readonly" type="number" formControlName="idade" matInput
+                            placeholder="Infome a idade!" required>
+                    </mat-form-field>
+                </div>
             </div>
 
-        </div>
+        </section>
 
     </mat-card>
 
