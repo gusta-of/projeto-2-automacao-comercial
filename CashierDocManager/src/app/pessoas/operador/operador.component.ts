@@ -1,7 +1,7 @@
 import { Component, Output, EventEmitter, HostListener, ChangeDetectionStrategy, Input, ViewChild } from '@angular/core';
-import { FormGroup, ControlValueAccessor, FormBuilder, Validators, FormGroupDirective } from '@angular/forms';
-import {MAT_MOMENT_DATE_FORMATS, MomentDateAdapter} from '@angular/material-moment-adapter';
-import {DateAdapter, MAT_DATE_FORMATS, MAT_DATE_LOCALE} from '@angular/material/core';
+import { FormGroup, ControlValueAccessor, FormBuilder, Validators, FormGroupDirective, Form } from '@angular/forms';
+import { MAT_MOMENT_DATE_FORMATS, MomentDateAdapter } from '@angular/material-moment-adapter';
+import { DateAdapter, MAT_DATE_FORMATS, MAT_DATE_LOCALE } from '@angular/material/core';
 
 /** 
  * Representa a entidade manipulada no formulário 
@@ -20,9 +20,9 @@ export interface UsuarioComponentData {
   templateUrl: './operador.component.html',
   styleUrls: ['./operador.component.scss'],
   providers: [
-    {provide: MAT_DATE_LOCALE, useValue: 'pt-BR'},
-    {provide: DateAdapter, useClass: MomentDateAdapter, deps: [MAT_DATE_LOCALE]},
-    {provide: MAT_DATE_FORMATS, useValue: MAT_MOMENT_DATE_FORMATS},
+    { provide: MAT_DATE_LOCALE, useValue: 'pt-BR' },
+    { provide: DateAdapter, useClass: MomentDateAdapter, deps: [MAT_DATE_LOCALE] },
+    { provide: MAT_DATE_FORMATS, useValue: MAT_MOMENT_DATE_FORMATS },
   ],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
@@ -34,6 +34,8 @@ export class OperadorComponent implements ControlValueAccessor {
   @Output()
   value: EventEmitter<UsuarioComponentData> = new EventEmitter<UsuarioComponentData>();
 
+  /** Coleção que receberá os operadores já cadastrados do sistema */
+  _operadores: UsuarioComponentData[] = [];
 
   /** Referências para as funções do ControlValueAccessor passadas pelo angular */
   private _onChange: (obj: UsuarioComponentData) => void;
@@ -85,19 +87,35 @@ export class OperadorComponent implements ControlValueAccessor {
 
   /** Função que vai emitir os dados do formulário para fora */
   _emiteDadosDoFormulario() {
-    
-    if(this._form.invalid) {
+    if (this._form.invalid) {
+      this._verificaFormularioValidoParaSubmeter(this._form);
       return;
     }
 
-    const dados: UsuarioComponentData = {...this._form.value};
+    const dados: UsuarioComponentData = { ...this._form.value };
     this.value.emit(dados);
 
     console.log(dados);
   }
 
+  /** Método que verifica por recursão se os componentes estão válidos;
+   *  Caso o controle seja do tipo formGroup ele chama a recursão para 
+   *  validar os controles filhos dele!
+   */
+   _verificaFormularioValidoParaSubmeter(formGroup: FormGroup){
+    Object.keys(formGroup.controls).forEach(campo => {
+      console.log(campo);
+      const controle = this._form.get(campo);
+      controle.markAsDirty();
+      
+      if(controle instanceof FormGroup){
+        this._verificaFormularioValidoParaSubmeter(controle);
+      }
+    });
+  }
+
   /** Função para limpar a data */
-  clearData() {
+  _limpaFormulario() {
     this.formGroupDirective.resetForm();
   }
 }
