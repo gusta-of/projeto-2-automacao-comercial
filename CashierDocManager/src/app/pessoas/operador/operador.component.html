@@ -5,8 +5,8 @@
 
     <div class="box-tollbar">
         <mat-toolbar color="warn" role="heading">
-            <button mat-button (click)="_emiteDadosDoFormulario()" [disabled]="_form.invalid">Novo</button>
-            <button mat-button (click)="clearData()">Limpar</button>
+            <button mat-flat-button color="warn" (click)="_emiteDadosDoFormulario()">Novo</button>
+            <button mat-flat-button color="warn" (click)="_limpaFormulario()">Limpar</button>
         </mat-toolbar>
     </div>
 
@@ -20,6 +20,7 @@
                         <mat-label>Nome</mat-label>
                         <input [readOnly]="readonly" matInput formControlName="nome"
                             placeholder="Digite o nome completo!" required>
+                        <mat-error>Nome é obrigatório!</mat-error>
                     </mat-form-field>
                 </div>
 
@@ -28,6 +29,7 @@
                         <mat-label>CPF/CNPJ</mat-label>
                         <input [readOnly]="readonly" matInput formControlName="cpf" placeholder="Digite o CPF/CNPJ!"
                             required>
+                        <mat-error>CPF/CNPJ é obrigatório!</mat-error>
                     </mat-form-field>
                 </div>
             </div>
@@ -47,6 +49,7 @@
                         <mat-label>Data de nascimento</mat-label>
                         <input matInput [matDatepicker]="dp" formControlName="nascimento"
                             placeholder="Data de Nascimento" required>
+                        <mat-error>Data de nascimento é obrigatório!</mat-error>
                         <mat-datepicker-toggle matSuffix [for]="dp"></mat-datepicker-toggle>
                         <mat-datepicker #dp></mat-datepicker>
                     </mat-form-field>
@@ -57,6 +60,7 @@
                         <mat-label>Idade</mat-label>
                         <input [readOnly]="readonly" type="number" formControlName="idade" matInput
                             placeholder="Infome a idade!" required>
+                        <mat-error>Idade é obrigatório!</mat-error>
                     </mat-form-field>
                 </div>
             </div>
