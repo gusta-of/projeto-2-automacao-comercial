@@ -1,14 +1,9 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { MatInputModule } from '@angular/material/input';
-import { MatToolbarModule } from '@angular/material/toolbar';
-import { MatButtonModule } from '@angular/material/button';
-import { ReactiveFormsModule } from '@angular/forms';
-import { MatCardModule } from '@angular/material/card';
-import {MatDatepickerModule} from '@angular/material/datepicker';
 import { MAT_DATE_LOCALE } from '@angular/material';
 
 import { OperadorComponent } from './operador.component';
+import { ExportingMaterialModule } from '../exporting-material.module';
 
 @NgModule({
   declarations: [
@@ -16,12 +11,7 @@ import { OperadorComponent } from './operador.component';
   ],
   imports: [
     CommonModule,
-    MatInputModule,
-    MatToolbarModule,
-    MatButtonModule,
-    ReactiveFormsModule,
-    MatCardModule,
-    MatDatepickerModule
+    ExportingMaterialModule
   ],
   providers: [
     {provide: MAT_DATE_LOCALE, useValue: 'pt-BR'},
