@@ -1,34 +1,35 @@
-<mat-toolbar class="tool-content">
+<app-login>
+</app-login>
 
-  <!-- Botão Logo -->
-  <button mat-fab color="warn" routerLink="">CDM</button>
+<!-- <mat-toolbar class="tool-content">
 
-  <!-- Modulo Cadastros Básicos -->
+    <button mat-fab color="warn" routerLink="">CDM</button>
   
-  <button mat-button routerLink="caixa" class="button-position">Caixa</button>
-  <button mat-button [matMenuTriggerFor]="cadastro" class="button-menu">Cadastros</button>
-  <mat-menu #cadastro="matMenu">
-    <button mat-menu-item [matMenuTriggerFor]="usuarios">Usuários</button>
-    <button mat-menu-item [matMenuTriggerFor]="empresa">Empresa</button>
-    <button mat-menu-item routerLink="produto">Produto</button>
-    <button mat-menu-item routerLink="marca">Marca</button>
-  </mat-menu>
-
-  <mat-menu #usuarios="matMenu">
-    <button mat-menu-item routerLink="usuarios">Cliente</button>
-
-    <button mat-menu-item routerLink="operador">Operador</button>
-
-    <button mat-menu-item routerLink="">Fornecedor</button>
-  </mat-menu>
-
-  <mat-menu #empresa="matMenu">
-    <button mat-menu-item routerLink="">Matriz</button>
-    <button mat-menu-item routerLink="">Filiais</button>
-  </mat-menu>
-
-</mat-toolbar>
-
-<div class="box-content">
-  <router-outlet></router-outlet>
-</div>
+    
+    <button mat-button routerLink="caixa" class="button-position">Caixa</button>
+    <button mat-button [matMenuTriggerFor]="cadastro" class="button-menu">Cadastros</button>
+    <mat-menu #cadastro="matMenu">
+      <button mat-menu-item [matMenuTriggerFor]="usuarios">Usuários</button>
+      <button mat-menu-item [matMenuTriggerFor]="empresa">Empresa</button>
+      <button mat-menu-item routerLink="produto">Produto</button>
+      <button mat-menu-item routerLink="marca">Marca</button>
+    </mat-menu>
+  
+    <mat-menu #usuarios="matMenu">
+      <button mat-menu-item routerLink="cliente">Cliente</button>
+  
+      <button mat-menu-item routerLink="operador">Operador</button>
+  
+      <button mat-menu-item routerLink="cliente">Fornecedor</button>
+    </mat-menu>
+  
+    <mat-menu #empresa="matMenu">
+      <button mat-menu-item routerLink="">Matriz</button>
+      <button mat-menu-item routerLink="">Filiais</button>
+    </mat-menu>
+  
+  </mat-toolbar>
+  
+  <div class="box-content">
+    <router-outlet></router-outlet>
+  </div> -->

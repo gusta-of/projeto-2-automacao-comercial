@@ -1,19 +1,9 @@
-import { Component, Output, EventEmitter, HostListener, ChangeDetectionStrategy, Input, ViewChild } from '@angular/core';
+import { Component, Output, EventEmitter, HostListener, Input, ViewChild } from '@angular/core';
 import { FormGroup, ControlValueAccessor, FormBuilder, Validators, FormGroupDirective, Form } from '@angular/forms';
 import { MAT_MOMENT_DATE_FORMATS, MomentDateAdapter } from '@angular/material-moment-adapter';
 import { DateAdapter, MAT_DATE_FORMATS, MAT_DATE_LOCALE } from '@angular/material/core';
+import { Operador } from 'src/app/data-access/model/Index';
 
-/** 
- * Representa a entidade manipulada no formulário 
- * */
-export interface UsuarioComponentData {
-  id: number;
-  nome: string;
-  cpf: string;
-  nascimento: Date;
-  idade: number;
-  email: string;
-}
 
 @Component({
   selector: 'app-operador',
@@ -24,7 +14,6 @@ export interface UsuarioComponentData {
     { provide: DateAdapter, useClass: MomentDateAdapter, deps: [MAT_DATE_LOCALE] },
     { provide: MAT_DATE_FORMATS, useValue: MAT_MOMENT_DATE_FORMATS },
   ],
-  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class OperadorComponent implements ControlValueAccessor {
   /** Representa o formulário na template */
@@ -32,13 +21,13 @@ export class OperadorComponent implements ControlValueAccessor {
 
   /** Declaração do tipo de entidade que será emitida no evento */
   @Output()
-  value: EventEmitter<UsuarioComponentData> = new EventEmitter<UsuarioComponentData>();
+  value: EventEmitter<Operador> = new EventEmitter<Operador>();
 
   /** Coleção que receberá os operadores já cadastrados do sistema */
-  _operadores: UsuarioComponentData[] = [];
+  _operadores: Operador[] = [];
 
   /** Referências para as funções do ControlValueAccessor passadas pelo angular */
-  private _onChange: (obj: UsuarioComponentData) => void;
+  private _onChange: (obj: Operador) => void;
   @HostListener('blur') _onTouched: () => void;
   //Propriedade para alterar estado do formalário se pode ser editado ou não.
   @Input() isReadOnly = false;
@@ -65,11 +54,11 @@ export class OperadorComponent implements ControlValueAccessor {
     });
   }
 
-  writeValue(obj: UsuarioComponentData): void {
+  writeValue(obj: Operador): void {
     this._form.setValue(obj);
   }
 
-  registerOnChange(fn: (obj: UsuarioComponentData) => void): void {
+  registerOnChange(fn: (obj: Operador) => void): void {
     this._onChange = fn;
   }
 
@@ -92,7 +81,7 @@ export class OperadorComponent implements ControlValueAccessor {
       return;
     }
 
-    const dados: UsuarioComponentData = { ...this._form.value };
+    const dados: Operador = { ...this._form.value };
     this.value.emit(dados);
 
     console.log(dados);
