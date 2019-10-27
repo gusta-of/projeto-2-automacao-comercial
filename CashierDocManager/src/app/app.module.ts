@@ -5,15 +5,13 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatIconModule } from '@angular/material/icon';
 import { ReactiveFormsModule } from '@angular/forms';
+import {HttpClientModule} from '@angular/common/http';
 
+/** Imports do app */
 import { AppComponent } from './app.component';
-import { CaixaModule } from './caixa/caixa.module';
 import { HomePageComponent } from './home-page/home-page.component';
 import { AppRoutingModule } from './app.routing.module';
-import { PessoasModule } from './pessoas/pessoas.module';
-import { MarcaModule } from './cadastros/marca/marca.module';
-import { ProdutoComponent } from './cadastros/produto/produto.component';
-import { ProdutoModule } from './cadastros/produto/produto.module';
+import { LoginModule } from './login/login.module';
 
 @NgModule({
   declarations: [
@@ -21,7 +19,6 @@ import { ProdutoModule } from './cadastros/produto/produto.module';
     HomePageComponent,
   ],
   imports: [
-    CaixaModule,
     BrowserAnimationsModule,
     ReactiveFormsModule,
     MatMenuModule,
@@ -29,9 +26,9 @@ import { ProdutoModule } from './cadastros/produto/produto.module';
     MatToolbarModule,
     MatIconModule,
     AppRoutingModule,
-    PessoasModule,
-    MarcaModule,
-    ProdutoModule
+    HttpClientModule,
+    // Teste Login OBS.: Será retirado apos os testes na tela para fazer requisição de autenticação,
+    LoginModule,
   ],
   bootstrap: [AppComponent]
 })
