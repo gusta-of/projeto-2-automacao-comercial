@@ -7,8 +7,7 @@ const routes: Routes = [
     { path: '', redirectTo: 'home', pathMatch: 'full' },
     { path: 'home', component: HomePageComponent },
     { path: 'caixa', loadChildren: ()=> import("./caixa/caixa.module").then(m => m.CaixaModule )},
-    { path: 'operador', loadChildren: ()=> import("./pessoas/operador/operador.module").then(m => m.OperadorModule )},
-    { path: 'cliente', loadChildren: ()=> import("./pessoas/cliente/cliente.module").then(m => m.ClienteModule )},
+    { path: '', loadChildren: ()=> import("./pessoas/pessoas.module").then(m => m.PessoasModule)},
     { path: 'marca', loadChildren: ()=> import("./cadastros/marca/marca.module").then(m => m.MarcaModule)},
     { path: 'produto', loadChildren: ()=> import("./cadastros/produto/produto.module").then(m => m.ProdutoModule)}
 ];
