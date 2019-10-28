@@ -16,8 +16,7 @@ export class LoginComponent implements OnInit {
   _operador: Operador;
 
   constructor(_fb: FormBuilder,
-               public _service: LoginService) 
-  { 
+    public _service: LoginService) {
     this._form = _fb.group({
       username: [null],
       password: [null]
@@ -27,12 +26,10 @@ export class LoginComponent implements OnInit {
   ngOnInit() {
   }
 
-  _autentique()
-  {
+  _autentique() {
     this._service.login(this._form.value.username, this._form.value.password)
-    .subscribe((op: Operador) => {
-      this._operador = op;
-    });
-    console.log(this._operador);
+      .subscribe((op: Operador) => {
+        console.log(op);
+      });
   }
 }
