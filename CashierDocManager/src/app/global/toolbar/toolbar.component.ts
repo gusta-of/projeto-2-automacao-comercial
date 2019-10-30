@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-toolbar-CDM',
@@ -7,9 +7,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ToolboxComponent implements OnInit {
 
+  @Output()
+  evento: EventEmitter<string> = new EventEmitter<string>();
   constructor() { }
 
   ngOnInit() {
   }
 
+  _emiteFuncaoSalvar()
+  {
+    this.evento.emit('{ "funcao": "salvar" }');
+  }
 }
