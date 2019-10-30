@@ -16,6 +16,7 @@ export class ToolboxComponent implements OnInit {
 
   _emiteFuncaoSalvar()
   {
-    this.evento.emit('{ "funcao": "salvar" }');
+    const funcao = '[{ "funcao": "salvar" }]';
+    this.evento.emit(funcao);
   }
 }

@@ -109,6 +109,6 @@ export class OperadorComponent implements ControlValueAccessor {
   }
 
   reciverFeedback(respostaFilho) {
-    console.log('Foi emitido o evento e chegou no pai >>>> ', respostaFilho);
+    console.log(respostaFilho);
   }
 }
