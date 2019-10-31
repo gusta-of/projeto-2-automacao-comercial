@@ -107,4 +107,8 @@ export class OperadorComponent implements ControlValueAccessor {
   _limpaFormulario() {
     this.formGroupDirective.resetForm();
   }
+
+  reciverFeedback(respostaFilho) {
+    console.log(respostaFilho);
+  }
 }

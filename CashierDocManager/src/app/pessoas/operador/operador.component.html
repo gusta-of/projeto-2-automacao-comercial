@@ -3,12 +3,15 @@
         <h1 class="font-titulo">Cadastro de Operador</h1>
     </div>
 
-    <div class="box-tollbar">
+    <div>
+        <app-toolbar-CDM (evento)="reciverFeedback($event)"></app-toolbar-CDM>
+    </div>
+    <!-- <div class="box-tollbar">
         <mat-toolbar color="warn" role="heading">
             <button mat-flat-button color="warn" (click)="_emiteDadosDoFormulario()">Novo</button>
             <button mat-flat-button color="warn" (click)="_limpaFormulario()">Limpar</button>
         </mat-toolbar>
-    </div>
+    </div> -->
 
     <mat-card class="card-cadastro">
         <section class="col">
