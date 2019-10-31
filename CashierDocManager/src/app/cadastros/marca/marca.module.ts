@@ -1,30 +1,18 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { MatInputModule } from '@angular/material/input';
-import { MatCardModule } from '@angular/material/card';
-import { MatTableModule } from '@angular/material/table';
-import { MatPaginatorModule } from '@angular/material/paginator';
-import { ReactiveFormsModule } from '@angular/forms';
-import { MatIconModule } from '@angular/material/icon';
 
 import { MarcaComponent } from './marca.component';
-import { MarcaRoutingModule } from './marca.routing.module';
-import { CadastrosComponent } from '../cadastros.component';
+import { ExportingMaterialModule } from '../exporting-material.module';
+import { GridModule } from 'src/app/global/grid/grid.module';
 
 @NgModule({
   declarations: [
-    MarcaComponent,
-    CadastrosComponent
+    MarcaComponent
   ],
   imports: [
     CommonModule,
-    MarcaRoutingModule,
-    MatInputModule,
-    MatCardModule,
-    ReactiveFormsModule,
-    MatTableModule,
-    MatPaginatorModule,
-    MatIconModule
+    ExportingMaterialModule,
+    GridModule
   ]
 })
 export class MarcaModule { }
