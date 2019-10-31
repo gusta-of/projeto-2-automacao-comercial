@@ -5,6 +5,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { ReactiveFormsModule } from '@angular/forms';
 import { MatCardModule } from '@angular/material/card';
 import {MatDatepickerModule} from '@angular/material/datepicker';
+import { MatOptionModule, MatSelectModule } from '@angular/material';
 
 @NgModule({
   declarations: [],
@@ -15,6 +16,8 @@ import {MatDatepickerModule} from '@angular/material/datepicker';
     ReactiveFormsModule,
     MatCardModule,
     MatDatepickerModule,
+    MatOptionModule,
+    MatSelectModule
   ]
 })
 export class ExportingMaterialModule { }

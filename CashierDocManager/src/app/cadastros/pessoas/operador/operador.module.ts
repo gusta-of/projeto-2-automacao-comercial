@@ -4,8 +4,8 @@ import { MAT_DATE_LOCALE } from '@angular/material';
 
 /** Imports da app */
 import { OperadorComponent } from './operador.component';
-import { ExportingMaterialModule } from '../exporting-material.module';
 import { ToolboxModule } from 'src/app/global/toolbar/toolbar.module';
+import { ExportingMaterialModule } from '../../exporting-material.module';
 
 @NgModule({
   declarations: [
@@ -14,7 +14,7 @@ import { ToolboxModule } from 'src/app/global/toolbar/toolbar.module';
   imports: [
     CommonModule,
     ExportingMaterialModule,
-    ToolboxModule,
+    ToolboxModule
   ],
   providers: [
     { provide: MAT_DATE_LOCALE, useValue: 'pt-BR' },
