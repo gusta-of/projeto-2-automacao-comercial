@@ -1,8 +1,9 @@
-import { Component, Output, EventEmitter, HostListener, Input, ViewChild } from '@angular/core';
+import { Component, Output, EventEmitter, HostListener, Input, ViewChild, ChangeDetectionStrategy } from '@angular/core';
 import { FormGroup, ControlValueAccessor, FormBuilder, Validators, FormGroupDirective, Form } from '@angular/forms';
 import { MAT_MOMENT_DATE_FORMATS, MomentDateAdapter } from '@angular/material-moment-adapter';
 import { DateAdapter, MAT_DATE_FORMATS, MAT_DATE_LOCALE } from '@angular/material/core';
 import { Operador } from 'src/app/data-access/model/Index';
+import { OperadorComponentService } from './operador-component.service';
 
 
 @Component({
@@ -14,6 +15,7 @@ import { Operador } from 'src/app/data-access/model/Index';
     { provide: DateAdapter, useClass: MomentDateAdapter, deps: [MAT_DATE_LOCALE] },
     { provide: MAT_DATE_FORMATS, useValue: MAT_MOMENT_DATE_FORMATS },
   ],
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class OperadorComponent implements ControlValueAccessor {
   /** Representa o formulário na template */
@@ -33,7 +35,7 @@ export class OperadorComponent implements ControlValueAccessor {
   @Input() isReadOnly = false;
   @ViewChild(FormGroupDirective, { static: true }) formGroupDirective: FormGroupDirective;
 
-  constructor(_fb: FormBuilder, private _adapter: DateAdapter<any>) {
+  constructor(_fb: FormBuilder, private _adapter: DateAdapter<any>, private _componentService: OperadorComponentService) {
     this._form = _fb.group({
       nome: [null, Validators.required],
       cpf: [null, Validators.required],
@@ -91,13 +93,13 @@ export class OperadorComponent implements ControlValueAccessor {
    *  Caso o controle seja do tipo formGroup ele chama a recursão para 
    *  validar os controles filhos dele!
    */
-   _verificaFormularioValidoParaSubmeter(formGroup: FormGroup){
+  _verificaFormularioValidoParaSubmeter(formGroup: FormGroup) {
     Object.keys(formGroup.controls).forEach(campo => {
       console.log(campo);
       const controle = this._form.get(campo);
       controle.markAsDirty();
-      
-      if(controle instanceof FormGroup){
+
+      if (controle instanceof FormGroup) {
         this._verificaFormularioValidoParaSubmeter(controle);
       }
     });

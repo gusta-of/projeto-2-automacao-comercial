@@ -19,4 +19,9 @@ export class ToolboxComponent implements OnInit {
     const funcao = '[{ "funcao": "salvar" }]';
     this.evento.emit(funcao);
   }
+  
+  _limpaFuncaoLimpar(){
+    const funcao = '[{ "funcao": "limpar" }]';
+    this.evento.emit(funcao);
+  }
 }
