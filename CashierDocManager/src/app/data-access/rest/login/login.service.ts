@@ -12,8 +12,8 @@ export class LoginService {
     private url = 'https://localhost:44334/api/operador/autenticacao';
 
     constructor(private _http: HttpClient) {
-        // const currentUser = JSON.parse(localStorage.getItem('currentUser'));
-        // this.token = currentUser && currentUser.token;
+        const currentUser = JSON.parse(localStorage.getItem('currentUser'));
+        this.token = currentUser && currentUser.token;
       }
     
       /** Autentica Usuário */
@@ -22,12 +22,11 @@ export class LoginService {
           .pipe(
             map(operador => {
               /** Retorna login bem-sucedido se houver um token jwt na resposta */
-              if (operador && operador.Token) {
+              if (operador) {
                 /**  armazenar detalhes do operador e token jwt no localStorage para 
                  * manter o operador logado entre as atualizações da página */
                 localStorage.setItem('currentUser', JSON.stringify(operador));
               }
-    
               return operador;
             })
           );
