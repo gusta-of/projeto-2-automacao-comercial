@@ -1,17 +1,16 @@
-import { NgModule } from '@angular/core';
+import {NgModule} from '@angular/core';
+import {MatButtonModule} from '@angular/material/button';
 import { MatInputModule } from '@angular/material/input';
-import { MatToolbarModule } from '@angular/material/toolbar';
-import { MatButtonModule } from '@angular/material/button';
+import { MatToolbarModule, MatToolbar } from '@angular/material/toolbar';
 import { ReactiveFormsModule } from '@angular/forms';
 import { MatCardModule } from '@angular/material/card';
 import {MatDatepickerModule} from '@angular/material/datepicker';
 import { MatOptionModule, MatSelectModule } from '@angular/material';
-import { ToolboxModule } from '../global/toolbar/toolbar.module';
+import { ToolboxModule } from 'src/app/global/toolbar/toolbar.module';
 
 @NgModule({
-  declarations: [],
   imports: [
-    ToolboxModule
+    ToolboxModule,
   ],
   exports: [
     MatInputModule,
@@ -22,7 +21,8 @@ import { ToolboxModule } from '../global/toolbar/toolbar.module';
     MatDatepickerModule,
     MatOptionModule,
     MatSelectModule,
+    MatDatepickerModule,
     ToolboxModule
   ]
 })
-export class ExportingMaterialModule { }
+export class CustomMaterialModule {}

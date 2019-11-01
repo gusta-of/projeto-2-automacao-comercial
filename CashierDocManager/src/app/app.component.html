@@ -11,21 +11,21 @@
     <mat-menu #cadastro="matMenu">
       <button mat-menu-item [matMenuTriggerFor]="usuarios">Usuários</button>
       <button mat-menu-item [matMenuTriggerFor]="empresa">Empresa</button>
-      <button mat-menu-item routerLink="produto">Produto</button>
-      <button mat-menu-item routerLink="marca">Marca</button>
+      <button mat-menu-item routerLink="cadastro/produto">Produto</button>
+      <button mat-menu-item routerLink="cadastro/marca">Marca</button>
     </mat-menu>
   
     <mat-menu #usuarios="matMenu">
-      <button mat-menu-item routerLink="cliente">Cliente</button>
+      <button mat-menu-item routerLink="cadastro/usuario/cliente">Cliente</button>
   
-      <button mat-menu-item routerLink="operador">Operador</button>
+      <button mat-menu-item routerLink="cadastro/usuario/operador">Operador</button>
   
-      <button mat-menu-item routerLink="cliente">Fornecedor</button>
+      <button mat-menu-item routerLink="cadastro/usuario/cliente">Fornecedor</button>
     </mat-menu>
   
     <mat-menu #empresa="matMenu">
-      <button mat-menu-item routerLink="">Matriz</button>
-      <button mat-menu-item routerLink="">Filiais</button>
+      <button mat-menu-item routerLink="cadastro/">Matriz</button>
+      <button mat-menu-item routerLink="cadastro/">Filiais</button>
     </mat-menu>
   
   </mat-toolbar>
