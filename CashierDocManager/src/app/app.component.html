@@ -1,8 +1,9 @@
 <mat-toolbar class="tool-content" >
 
-    <button mat-fab color="warn" routerLink="">CDM</button>
+    <button mat-fab color="warn" routerLink="home">CDM</button>
   
-    
+    <button mat-button (click)="_sair()" class="button-position">Sair</button>
+
     <button mat-button routerLink="caixa" class="button-position">Caixa</button>
     <button mat-button [matMenuTriggerFor]="cadastro" class="button-menu">Cadastros</button>
     <mat-menu #cadastro="matMenu">
@@ -13,11 +14,11 @@
     </mat-menu>
   
     <mat-menu #usuarios="matMenu">
-      <button mat-menu-item routerLink="home/cadastro/usuario/cliente">Cliente</button>
+      <button mat-menu-item routerLink="cadastro/usuario/cliente">Cliente</button>
   
-      <button mat-menu-item routerLink="home/cadastro/usuario/operador">Operador</button>
+      <button mat-menu-item routerLink="cadastro/usuario/operador">Operador</button>
   
-      <button mat-menu-item routerLink="home/cadastro/usuario/cliente">Fornecedor</button>
+      <button mat-menu-item routerLink="cadastro/usuario/cliente">Fornecedor</button>
     </mat-menu>
   
     <mat-menu #empresa="matMenu">

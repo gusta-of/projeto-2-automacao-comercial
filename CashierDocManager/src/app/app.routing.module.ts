@@ -9,7 +9,7 @@ const routes: Routes = [
     {
         path: '',
         pathMatch: 'full',
-        redirectTo: 'login'
+        redirectTo: 'home'
     },
     {
         path: 'login',
@@ -18,11 +18,16 @@ const routes: Routes = [
     {
         path: 'home',
         component: HomePageComponent,
-        canActivate: [AuthGuard],
-        children: [
-            { path: 'caixa', loadChildren: () => import("./caixa/caixa.module").then(m => m.CaixaModule) },
-            { path: '', loadChildren: () => import("./cadastros/cadastros.module").then(m => m.CadastrosModule) }
-        ]
+        canActivate: [AuthGuard]
+    },
+    { 
+        path: 'caixa', 
+        canActivate: [AuthGuard], 
+        loadChildren: () => import("./caixa/caixa.module").then(m => m.CaixaModule) },
+    { 
+        path: '', 
+        canActivate: [AuthGuard], 
+        loadChildren: () => import("./cadastros/cadastros.module").then(m => m.CadastrosModule) 
     }
 ];
 

@@ -4,6 +4,7 @@ import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { Operador } from '../../model/Index';
+import { Router } from '@angular/router';
 
 @Injectable({providedIn: 'root'})
 export class LoginService {
@@ -11,7 +12,7 @@ export class LoginService {
     public token: string;
     private url = 'https://localhost:44334/api/operador/autenticacao';
 
-    constructor(private _http: HttpClient) {
+    constructor(private _http: HttpClient, private router: Router) {
         const currentUser = JSON.parse(localStorage.getItem('currentUser'));
         this.token = currentUser && currentUser.token;
       }
@@ -37,5 +38,6 @@ export class LoginService {
         /** Limpa o token removendo o operador do local store para efetuar o logout */
         this.token = null;
         localStorage.removeItem('currentUser');
+        this.router.navigate(["login"]);
       }
 }
