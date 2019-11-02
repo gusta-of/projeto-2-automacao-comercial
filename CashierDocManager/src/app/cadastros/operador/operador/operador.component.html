@@ -1,69 +1,70 @@
-<form [formGroup]="_form">
-    <div>
-        <app-toolbar-CDM (evento)="reciverFeedback($event)"></app-toolbar-CDM>
-    </div> 
-    
-    <mat-card class="card-cadastro">
-        <section class="col">
+<section class="container">
+    <form [formGroup]="_form">
+        <div>
+            <app-toolbar-CDM (evento)="reciverFeedback($event)"></app-toolbar-CDM>
+        </div>
 
-            <div class="row">
+        <mat-card class="card-cadastro">
+            <section class="col">
 
-                <div class="col-lg-8 col-md-8 col-sm-12">
-                    <mat-form-field floatLabel="always">
-                        <mat-label>Nome</mat-label>
-                        <input [readOnly]="readonly" matInput formControlName="nome"
-                            placeholder="Digite o nome completo!" required>
-                        <mat-error>Nome é obrigatório!</mat-error>
-                    </mat-form-field>
+                <div class="row">
+
+                    <div class="col-lg-8 col-md-8 col-sm-12">
+                        <mat-form-field floatLabel="always">
+                            <mat-label>Nome</mat-label>
+                            <input [readOnly]="readonly" matInput formControlName="nome"
+                                placeholder="Digite o nome completo!" required>
+                            <mat-error>Nome é obrigatório!</mat-error>
+                        </mat-form-field>
+                    </div>
+
+                    <div class="col-lg-4 col-md-4 col-sm-12">
+                        <mat-form-field floatLabel="always">
+                            <mat-label>CPF/CNPJ</mat-label>
+                            <input [readOnly]="readonly" matInput formControlName="cpf" placeholder="Digite o CPF/CNPJ!"
+                                required>
+                            <mat-error>CPF/CNPJ é obrigatório!</mat-error>
+                        </mat-form-field>
+                    </div>
                 </div>
 
-                <div class="col-lg-4 col-md-4 col-sm-12">
-                    <mat-form-field floatLabel="always">
-                        <mat-label>CPF/CNPJ</mat-label>
-                        <input [readOnly]="readonly" matInput formControlName="cpf" placeholder="Digite o CPF/CNPJ!"
-                            required>
-                        <mat-error>CPF/CNPJ é obrigatório!</mat-error>
-                    </mat-form-field>
-                </div>
-            </div>
-
-            <div class="row">
-                <div class="col-sm-12">
-                    <mat-form-field floatLabel="always">
-                        <mat-label>Email</mat-label>
-                        <input [readOnly]="readonly" matInput formControlName="email" placeholder="Digite o Email!">
-                    </mat-form-field>
-                </div>
-            </div>
-
-            <div class="row">
-                <div class="col-lg-5 col-md-6 col-sm-12">
-                    <mat-form-field floatLabel="always">
-                        <mat-label>Data de nascimento</mat-label>
-                        <input matInput [matDatepicker]="dp" formControlName="nascimento"
-                            placeholder="Data de Nascimento" required>
-                        <mat-error>Data de nascimento é obrigatório!</mat-error>
-                        <mat-datepicker-toggle matSuffix [for]="dp"></mat-datepicker-toggle>
-                        <mat-datepicker #dp></mat-datepicker>
-                    </mat-form-field>
+                <div class="row">
+                    <div class="col-sm-12">
+                        <mat-form-field floatLabel="always">
+                            <mat-label>Email</mat-label>
+                            <input [readOnly]="readonly" matInput formControlName="email" placeholder="Digite o Email!">
+                        </mat-form-field>
+                    </div>
                 </div>
 
-                <div class="col-lg-3 col-md-6 col-sm-12">
-                    <mat-form-field floatLabel="always">
-                        <mat-label>Idade</mat-label>
-                        <input [readOnly]="readonly" type="number" formControlName="idade" matInput
-                            placeholder="Infome a idade!" required>
-                        <mat-error>Idade é obrigatório!</mat-error>
-                    </mat-form-field>
+                <div class="row">
+                    <div class="col-lg-5 col-md-6 col-sm-12">
+                        <mat-form-field floatLabel="always">
+                            <mat-label>Data de nascimento</mat-label>
+                            <input matInput [matDatepicker]="dp" formControlName="nascimento"
+                                placeholder="Data de Nascimento" required>
+                            <mat-error>Data de nascimento é obrigatório!</mat-error>
+                            <mat-datepicker-toggle matSuffix [for]="dp"></mat-datepicker-toggle>
+                            <mat-datepicker #dp></mat-datepicker>
+                        </mat-form-field>
+                    </div>
+
+                    <div class="col-lg-3 col-md-6 col-sm-12">
+                        <mat-form-field floatLabel="always">
+                            <mat-label>Idade</mat-label>
+                            <input [readOnly]="readonly" type="number" formControlName="idade" matInput
+                                placeholder="Infome a idade!" required>
+                            <mat-error>Idade é obrigatório!</mat-error>
+                        </mat-form-field>
+                    </div>
                 </div>
-            </div>
 
-        </section>
+            </section>
 
-    </mat-card>
+        </mat-card>
 
-    <pre>
-        {{_form.value | json}}
-    </pre>
-
-</form>
+        <pre>
+            {{_form.value | json}}
+        </pre>
+    </form>
+</section>
