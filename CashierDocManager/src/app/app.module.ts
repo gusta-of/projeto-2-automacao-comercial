@@ -5,12 +5,15 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatIconModule } from '@angular/material/icon';
 import { ReactiveFormsModule } from '@angular/forms';
-import {HttpClientModule} from '@angular/common/http';
+import { HttpClientModule } from '@angular/common/http';
+import { HttpModule } from '@angular/http';
 
 /** Imports do app */
 import { AppComponent } from './app.component';
 import { HomePageComponent } from './home-page/home-page.component';
 import { AppRoutingModule } from './app.routing.module';
+import { AuthGuard } from './data-access/rest/GuardRouter/AuthGuard';
+import { LoginComponent } from './login/login.component';
 import { LoginModule } from './login/login.module';
 
 @NgModule({
@@ -27,9 +30,12 @@ import { LoginModule } from './login/login.module';
     MatIconModule,
     AppRoutingModule,
     HttpClientModule,
-    // Teste Login OBS.: Será retirado apos os testes na tela para fazer requisição de autenticação,
-    LoginModule,
+    HttpModule,
+    LoginModule
   ],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  providers: [
+    AuthGuard,
+  ]
 })
 export class AppModule { }

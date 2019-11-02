@@ -1,11 +1,9 @@
-<!-- <app-login>
-</app-login> -->
+<mat-toolbar class="tool-content" >
 
-<mat-toolbar class="tool-content">
-
-    <button mat-fab color="warn" routerLink="">CDM</button>
+    <button mat-fab color="warn" routerLink="home">CDM</button>
   
-    
+    <button mat-button (click)="_sair()" class="button-position">Sair</button>
+
     <button mat-button routerLink="caixa" class="button-position">Caixa</button>
     <button mat-button [matMenuTriggerFor]="cadastro" class="button-menu">Cadastros</button>
     <mat-menu #cadastro="matMenu">

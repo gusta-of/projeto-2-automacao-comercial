@@ -7,10 +7,10 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { LoginComponent } from './login.component';
 import { MatFormFieldModule } from '@angular/material';
 
-
-
 @NgModule({
-  declarations: [LoginComponent],
+  declarations: [
+    LoginComponent,
+  ],
   imports: [
     CommonModule,
     MatFormFieldModule,
@@ -18,8 +18,9 @@ import { MatFormFieldModule } from '@angular/material';
     MatButtonModule,
     ReactiveFormsModule,
   ],
-  exports: [
-    LoginComponent, 
+  exports:
+  [
+    LoginComponent,
   ]
 })
 export class LoginModule { }
