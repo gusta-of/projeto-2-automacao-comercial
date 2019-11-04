@@ -20,7 +20,7 @@ export class AppComponent implements OnInit {
       this.mostrarMenu = true;
     }
     else {
-      this.loginService.mostraMenuEmitter.subscribe(mostrar => this.mostrarMenu = mostrar);
+      this.loginService.mostraMenuEmitter.subscribe((mostrar: boolean) => this.mostrarMenu = mostrar);
     }
   }
  
