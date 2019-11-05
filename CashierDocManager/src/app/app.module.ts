@@ -6,7 +6,6 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatIconModule } from '@angular/material/icon';
 import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
-import { HttpModule } from '@angular/http';
 
 /** Imports do app */
 import { AppComponent } from './app.component';
@@ -30,7 +29,6 @@ import { LoginModule } from './login/login.module';
     MatIconModule,
     AppRoutingModule,
     HttpClientModule,
-    HttpModule,
     LoginModule
   ],
   bootstrap: [AppComponent],
