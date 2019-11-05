@@ -13,7 +13,6 @@ import { AppComponent } from './app.component';
 import { HomePageComponent } from './home-page/home-page.component';
 import { AppRoutingModule } from './app.routing.module';
 import { AuthGuard } from './data-access/rest/GuardRouter/AuthGuard';
-import { LoginComponent } from './login/login.component';
 import { LoginModule } from './login/login.module';
 
 @NgModule({
