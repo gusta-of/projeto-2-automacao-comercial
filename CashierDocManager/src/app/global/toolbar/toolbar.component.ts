@@ -7,21 +7,27 @@ import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 })
 export class ToolboxComponent implements OnInit {
 
-  @Output()
-  evento: EventEmitter<string> = new EventEmitter<string>();
+  @Output() evento = new EventEmitter();
+  ehNovo: boolean = false;
+
   constructor() { }
 
-  ngOnInit() {
+  ngOnInit() {}
+
+
+  handleButtonClickNovo(value) {
+    if(!this.ehNovo){
+      this.ehNovo = value; 
+      this.evento.emit({'funcao': 'novo'});
+    }
+    else{
+      this.ehNovo = !value;
+      this.evento.emit({'funcao': 'Edicao'});
+    }
   }
 
-  _emiteFuncaoSalvar()
-  {
-    const funcao = '[{ "funcao": "salvar" }]';
-    this.evento.emit(funcao);
-  }
-  
-  _limpaFuncaoLimpar(){
-    const funcao = '[{ "funcao": "limpar" }]';
-    this.evento.emit(funcao);
+  handleButtonClickLimpar(value){
+    this.evento.emit({'funcao': 'Limpar'});
+    this.ehNovo = true;
   }
 }

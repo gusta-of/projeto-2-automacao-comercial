@@ -1,9 +1,9 @@
-import { Component, Output, EventEmitter, HostListener, Input, ViewChild, ChangeDetectionStrategy } from '@angular/core';
-import { FormGroup, ControlValueAccessor, FormBuilder, Validators, FormGroupDirective, Form } from '@angular/forms';
+import { Component, Output, EventEmitter, HostListener, Input, ViewChild, ChangeDetectionStrategy, OnInit } from '@angular/core';
+import { FormGroup, ControlValueAccessor, FormBuilder, Validators, FormGroupDirective, AbstractControl, ValidatorFn, ValidationErrors } from '@angular/forms';
 import { MAT_MOMENT_DATE_FORMATS, MomentDateAdapter } from '@angular/material-moment-adapter';
 import { DateAdapter, MAT_DATE_FORMATS, MAT_DATE_LOCALE } from '@angular/material/core';
 import { Operador } from 'src/app/data-access/model/Index';
-import { OperadorComponentService } from './operador-component.service';
+import { equal } from 'assert';
 
 
 @Component({
@@ -17,13 +17,20 @@ import { OperadorComponentService } from './operador-component.service';
   ],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class OperadorComponent implements ControlValueAccessor {
+export class OperadorComponent implements ControlValueAccessor, OnInit {
+
   /** Representa o formulário na template */
   _form: FormGroup;
 
   /** Declaração do tipo de entidade que será emitida no evento */
   @Output()
   value: EventEmitter<Operador> = new EventEmitter<Operador>();
+
+  /** Expressão regular para validar e-mail */
+  emailPattern = /^[a-z0-9.]+@[a-z0-9]+\.[a-z]+/i;
+
+  /** Expressão regular para validar campo que aceita cpf ou cnpj */
+  cpfcnpjPattern = /^([0-9]{3}\.?[0-9]{3}\.?[0-9]{3}\-?[0-9]{2}|[0-9]{2}\.?[0-9]{3}\.?[0-9]{3}\/?[0-9]{4}\-?[0-9]{2})$/;
 
   /** Coleção que receberá os operadores já cadastrados do sistema */
   _operadores: Operador[] = [];
@@ -35,14 +42,14 @@ export class OperadorComponent implements ControlValueAccessor {
   @Input() isReadOnly = false;
   @ViewChild(FormGroupDirective, { static: true }) formGroupDirective: FormGroupDirective;
 
-  constructor(_fb: FormBuilder, private _adapter: DateAdapter<any>, private _componentService: OperadorComponentService) {
+  constructor(private _fb: FormBuilder) {
     this._form = _fb.group({
-      nome: [null, Validators.required],
-      cpf: [null, Validators.required],
-      nascimento: [null, Validators.required],
-      idade: [null, Validators.required],
-      email: [null]
-    });
+      nome: ['', [Validators.required, Validators.minLength(2)]],
+      cpf: ['', [Validators.required, Validators.pattern(this.cpfcnpjPattern)]],
+      nascimento: ['', [Validators.required]],
+        email: ['', [Validators.required, Validators.pattern(this.emailPattern)]],
+        confirmEmail: ['', [Validators.required, Validators.pattern(this.emailPattern)]]
+    }, { validators: this.equalsTo })
 
     // Observable
     this._form.valueChanges.subscribe((valor) => {
@@ -53,8 +60,26 @@ export class OperadorComponent implements ControlValueAccessor {
       if (this._onTouched) {
         this._onTouched();
       }
-    });
+    })
   }
+
+  ngOnInit(): void { }
+
+   //Valida se e-mails estão válidos(iguais)
+  equalsTo: ValidatorFn = (control: FormGroup): ValidationErrors | undefined => {
+    const email = control.get('email');
+    const emailConfirm = control.get('confirmEmail');
+
+    if (email.invalid || emailConfirm.invalid) {
+      return undefined;
+    }
+
+    if (email.value !== emailConfirm.value) {
+      return { emailNotMatch: true }
+    }
+
+    return undefined;
+  };
 
   writeValue(obj: Operador): void {
     this._form.setValue(obj);
@@ -110,7 +135,8 @@ export class OperadorComponent implements ControlValueAccessor {
     this.formGroupDirective.resetForm();
   }
 
-  reciverFeedback(respostaFilho) {
+  /** Recebe o evento do component toolbox para gerar a ação necessária */
+  recebeEmicaoDeFuncao(respostaFilho) {
     console.log(respostaFilho);
   }
 }
