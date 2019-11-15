@@ -6,12 +6,12 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { MatCardModule } from '@angular/material/card';
 import {MatDatepickerModule} from '@angular/material/datepicker';
 import { MatOptionModule, MatSelectModule } from '@angular/material';
-import { ToolboxModule } from '../global/toolbar/toolbar.module';
+import { SharedModule } from '../global/shared.module';
 
 @NgModule({
   declarations: [],
   imports: [
-    ToolboxModule
+    SharedModule
   ],
   exports: [
     MatInputModule,
@@ -21,8 +21,7 @@ import { ToolboxModule } from '../global/toolbar/toolbar.module';
     MatCardModule,
     MatDatepickerModule,
     MatOptionModule,
-    MatSelectModule,
-    ToolboxModule
+    MatSelectModule
   ]
 })
 export class ExportingMaterialModule { }
