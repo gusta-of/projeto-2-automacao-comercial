@@ -1,9 +1,10 @@
 import { Component, Output, EventEmitter, HostListener, Input, ViewChild, ChangeDetectionStrategy, OnInit } from '@angular/core';
-import { FormGroup, ControlValueAccessor, FormBuilder, Validators, FormGroupDirective, AbstractControl, ValidatorFn, ValidationErrors } from '@angular/forms';
+import { FormGroup, ControlValueAccessor, FormBuilder, Validators, FormGroupDirective, ValidatorFn, ValidationErrors } from '@angular/forms';
 import { MAT_MOMENT_DATE_FORMATS, MomentDateAdapter } from '@angular/material-moment-adapter';
 import { DateAdapter, MAT_DATE_FORMATS, MAT_DATE_LOCALE } from '@angular/material/core';
+
 import { Operador } from 'src/app/data-access/model/Index';
-import { equal } from 'assert';
+import { NotificationService } from '../../../data-access/rest/notificationService/notification.service';
 
 
 @Component({
@@ -42,7 +43,8 @@ export class OperadorComponent implements ControlValueAccessor, OnInit {
   @Input() isReadOnly = false;
   @ViewChild(FormGroupDirective, { static: true }) formGroupDirective: FormGroupDirective;
 
-  constructor(private _fb: FormBuilder) {
+
+  constructor(_fb: FormBuilder, private _notificationService: NotificationService) {
     this._form = _fb.group({
       nome: ['', [Validators.required, Validators.minLength(2)]],
       cpf: ['', [Validators.required, Validators.pattern(this.cpfcnpjPattern)]],
@@ -105,6 +107,8 @@ export class OperadorComponent implements ControlValueAccessor, OnInit {
   _emiteDadosDoFormulario() {
     if (this._form.invalid) {
       this._verificaFormularioValidoParaSubmeter(this._form);
+
+      this._notificationService.notify("Campo(s) Invalido(s), Verifique se preencheu o formulário corretamente!")
       return;
     }
 
@@ -123,7 +127,7 @@ export class OperadorComponent implements ControlValueAccessor, OnInit {
       console.log(campo);
       const controle = this._form.get(campo);
       controle.markAsDirty();
-
+      
       if (controle instanceof FormGroup) {
         this._verificaFormularioValidoParaSubmeter(controle);
       }
@@ -135,8 +139,19 @@ export class OperadorComponent implements ControlValueAccessor, OnInit {
     this.formGroupDirective.resetForm();
   }
 
-  /** Recebe o evento do component toolbox para gerar a ação necessária */
-  recebeEmicaoDeFuncao(respostaFilho) {
-    console.log(respostaFilho);
+  reciverFeedback(respostaFilho) {
+    console.log(respostaFilho)
+    const jsonResposta = JSON.parse(respostaFilho);
+
+    if( jsonResposta.funcao == "salvar") {
+
+      this._emiteDadosDoFormulario();
+    }
+    
+    if(jsonResposta.funcao == "novo")
+    {
+      /** Aqui chamaremos o card para cadastro */
+    }
   }
+
 }

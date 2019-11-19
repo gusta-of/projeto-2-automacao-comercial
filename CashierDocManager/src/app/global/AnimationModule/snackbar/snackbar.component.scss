@@ -1,0 +1,12 @@
+.snackbar {
+    min-width: 150px;
+    margin-left: -125px;
+    background-color: rgba(26, 24, 24, 0.514);
+    color: rgb(235, 250, 19);
+    border-radius: 20px;
+    padding: 16px;
+    position: fixed;
+    z-index: 1;
+    left: 80%;
+    bottom: 50px;
+}

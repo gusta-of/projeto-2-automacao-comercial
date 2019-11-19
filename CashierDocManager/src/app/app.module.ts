@@ -13,6 +13,8 @@ import { HomePageComponent } from './home-page/home-page.component';
 import { AppRoutingModule } from './app.routing.module';
 import { AuthGuard } from './data-access/rest/GuardRouter/AuthGuard';
 import { LoginModule } from './login/login.module';
+import { SharedModule } from './global/shared.module';
+import { NotificationService } from './data-access/rest/notificationService/notification.service';
 
 @NgModule({
   declarations: [
@@ -28,11 +30,13 @@ import { LoginModule } from './login/login.module';
     MatIconModule,
     AppRoutingModule,
     HttpClientModule,
-    LoginModule
+    LoginModule,
+    SharedModule
   ],
   bootstrap: [AppComponent],
   providers: [
     AuthGuard,
+    NotificationService
   ]
 })
 export class AppModule { }

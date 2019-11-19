@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 
 import { MarcaComponent } from './marca.component';
 import { ExportingMaterialModule } from '../exporting-material.module';
-import { GridModule } from 'src/app/global/grid/grid.module';
+import { SharedModule } from 'src/app/global/shared.module';
 
 @NgModule({
   declarations: [
@@ -12,7 +12,7 @@ import { GridModule } from 'src/app/global/grid/grid.module';
   imports: [
     CommonModule,
     ExportingMaterialModule,
-    GridModule
+    SharedModule
   ]
 })
 export class MarcaModule { }
