@@ -1,4 +1,5 @@
-import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter, Input } from '@angular/core';
+import { ResponseEmitterService } from '../../data-access/rest/response-emitter.service';
 
 @Component({
   selector: 'app-toolbar-CDM',
@@ -8,26 +9,36 @@ import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 export class ToolBoxComponent implements OnInit {
 
   @Output() evento = new EventEmitter();
-  ehNovo: boolean = false;
+  ehNovo: boolean;
 
-  constructor() { }
+  constructor(private _responseEmitter: ResponseEmitterService) { }
 
-  ngOnInit() {}
+  ngOnInit() {
+    this._responseEmitter.notifier.subscribe(value =>
+      this._respostaPai(value)
+    );
+  }
 
 
   handleButtonClickNovo(value) {
-    if(!this.ehNovo){
-      this.ehNovo = value; 
+    if (!this.ehNovo) {
+      this.ehNovo = value;
       this.evento.emit('{"funcao": "novo"}');
     }
-    else{
+    else {
       this.ehNovo = !value;
       this.evento.emit('{"funcao": "salvar"}');
     }
   }
 
-  handleButtonClickLimpar(value){
+  handleButtonClickLimpar(value) {
     this.evento.emit('{"funcao": "limpar"}');
     this.ehNovo = true;
+  }
+
+  _respostaPai(resposta) {
+    if(resposta == true){
+      this.ehNovo = !this.ehNovo;
+    }
   }
 }

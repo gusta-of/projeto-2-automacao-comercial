@@ -5,6 +5,7 @@ import { DateAdapter, MAT_DATE_FORMATS, MAT_DATE_LOCALE } from '@angular/materia
 
 import { Operador } from 'src/app/data-access/model/Index';
 import { NotificationService } from '../../../data-access/rest/notificationService/notification.service';
+import { ResponseEmitterService } from 'src/app/data-access/rest/response-emitter.service';
 
 
 @Component({
@@ -19,6 +20,14 @@ import { NotificationService } from '../../../data-access/rest/notificationServi
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class OperadorComponent implements ControlValueAccessor, OnInit {
+
+  _EhCadastroOuEdicao: boolean = false;
+
+  //Header da tabela de marca
+  colunas: string[]= ['Nome', 'Email', '', ''];
+
+  //Propriedade que irá atualizar os valores da tabela de marca
+  valores: any[][] = [];
 
   /** Representa o formulário na template */
   _form: FormGroup;
@@ -44,13 +53,15 @@ export class OperadorComponent implements ControlValueAccessor, OnInit {
   @ViewChild(FormGroupDirective, { static: true }) formGroupDirective: FormGroupDirective;
 
 
-  constructor(_fb: FormBuilder, private _notificationService: NotificationService) {
+  constructor(_fb: FormBuilder, 
+              private _notificationService: NotificationService, 
+              private _responseEmitter: ResponseEmitterService) {
     this._form = _fb.group({
       nome: ['', [Validators.required, Validators.minLength(2)]],
       cpf: ['', [Validators.required, Validators.pattern(this.cpfcnpjPattern)]],
       nascimento: ['', [Validators.required]],
-        email: ['', [Validators.required, Validators.pattern(this.emailPattern)]],
-        confirmEmail: ['', [Validators.required, Validators.pattern(this.emailPattern)]]
+      email: ['', [Validators.required, Validators.pattern(this.emailPattern)]],
+      confirmEmail: ['', [Validators.required, Validators.pattern(this.emailPattern)]]
     }, { validators: this.equalsTo })
 
     // Observable
@@ -65,9 +76,9 @@ export class OperadorComponent implements ControlValueAccessor, OnInit {
     })
   }
 
-  ngOnInit(): void { }
+  ngOnInit(): void {}
 
-   //Valida se e-mails estão válidos(iguais)
+  //Valida se e-mails estão válidos(iguais)
   equalsTo: ValidatorFn = (control: FormGroup): ValidationErrors | undefined => {
     const email = control.get('email');
     const emailConfirm = control.get('confirmEmail');
@@ -104,18 +115,17 @@ export class OperadorComponent implements ControlValueAccessor, OnInit {
   }
 
   /** Função que vai emitir os dados do formulário para fora */
-  _emiteDadosDoFormulario() {
+  _emiteDadosDoFormulario(): boolean {
     if (this._form.invalid) {
       this._verificaFormularioValidoParaSubmeter(this._form);
-
       this._notificationService.notify("Campo(s) Invalido(s), Verifique se preencheu o formulário corretamente!")
-      return;
+      return false;
     }
 
     const dados: Operador = { ...this._form.value };
     this.value.emit(dados);
-
     console.log(dados);
+    return true;
   }
 
   /** Método que verifica por recursão se os componentes estão válidos;
@@ -127,7 +137,7 @@ export class OperadorComponent implements ControlValueAccessor, OnInit {
       console.log(campo);
       const controle = this._form.get(campo);
       controle.markAsDirty();
-      
+
       if (controle instanceof FormGroup) {
         this._verificaFormularioValidoParaSubmeter(controle);
       }
@@ -143,15 +153,25 @@ export class OperadorComponent implements ControlValueAccessor, OnInit {
     console.log(respostaFilho)
     const jsonResposta = JSON.parse(respostaFilho);
 
-    if( jsonResposta.funcao == "salvar") {
+    if (jsonResposta.funcao == "salvar") {
 
-      this._emiteDadosDoFormulario();
+      if(this._emiteDadosDoFormulario())
+      {
+        this._EhCadastroOuEdicao = !this._EhCadastroOuEdicao;
+        /** Aqui faremos a requisição e salvar o operador */
+      }
+
+      this._responseEmitter.notify(this._form.invalid);
     }
-    
-    if(jsonResposta.funcao == "novo")
-    {
+
+    if (jsonResposta.funcao == "novo") {
+      this._EhCadastroOuEdicao = !this._EhCadastroOuEdicao;
       /** Aqui chamaremos o card para cadastro */
     }
+  }
+
+  _respondaFilho() : boolean {
+    return this._form.invalid;
   }
 
 }

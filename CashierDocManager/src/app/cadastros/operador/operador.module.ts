@@ -8,6 +8,7 @@ import { CustomMaterialModule } from './custom-material.module';
 import { ReactiveFormsModule } from '@angular/forms';
 import { OperadorRoutingModule } from './operador-routing/operador-routing.module';
 import { OperadorRoutingComponent } from './operador-routing/operador-routing.component';
+import { ResponseEmitterService } from 'src/app/data-access/rest/response-emitter.service';
 
 @NgModule({
   declarations: [
@@ -25,6 +26,7 @@ import { OperadorRoutingComponent } from './operador-routing/operador-routing.co
   ],
   providers: [
     { provide: MAT_DATE_LOCALE, useValue: 'pt-BR' },
+    ResponseEmitterService
   ]
 })
 export class OperadorModule { }
