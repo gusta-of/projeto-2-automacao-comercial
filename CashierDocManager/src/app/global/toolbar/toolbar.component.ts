@@ -19,15 +19,19 @@ export class ToolBoxComponent implements OnInit {
     );
   }
 
-
   handleButtonClickNovo(value) {
     if (!this.ehNovo) {
-      this.ehNovo = value;
+      this.ehNovo = !this.ehNovo;
       this.evento.emit('{"funcao": "novo"}');
+      value.currentTarget.querySelector("span").innerHTML = "Confirmar";
     }
     else {
-      this.ehNovo = !value;
-      this.evento.emit('{"funcao": "salvar"}');
+      if(this.ehNovo)
+      {
+        this.ehNovo = !value;
+        this.evento.emit('{"funcao": "salvar"}');
+        value.currentTarget.querySelector("span").innerHTML = "Novo";
+      }
     }
   }
 
@@ -38,7 +42,8 @@ export class ToolBoxComponent implements OnInit {
 
   _respostaPai(resposta) {
     if(resposta == true){
-      this.ehNovo = !this.ehNovo;
+      this.ehNovo = resposta;
+      return;
     }
   }
 }

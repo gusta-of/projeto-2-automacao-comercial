@@ -5,9 +5,6 @@ import { GridComponent } from './grid/grid.component';
 import { ToolBoxComponent } from './toolbar/toolbar.component';
 import { ImportsGlobalModule } from './imports-global.module';
 import { NotificationService } from '../data-access/rest/notificationService/notification.service';
-import { ResponseEmitterService } from '../data-access/rest/response-emitter.service';
-
-
 
 @NgModule({
   declarations: [ 

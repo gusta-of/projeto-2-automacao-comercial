@@ -76,7 +76,9 @@ export class OperadorComponent implements ControlValueAccessor, OnInit {
     })
   }
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.valores.push(['Teste', 'Teste']);
+  }
 
   //Valida se e-mails estão válidos(iguais)
   equalsTo: ValidatorFn = (control: FormGroup): ValidationErrors | undefined => {
@@ -118,7 +120,7 @@ export class OperadorComponent implements ControlValueAccessor, OnInit {
   _emiteDadosDoFormulario(): boolean {
     if (this._form.invalid) {
       this._verificaFormularioValidoParaSubmeter(this._form);
-      this._notificationService.notify("Campo(s) Invalido(s), Verifique se preencheu o formulário corretamente!")
+      this._notificationService.notify("Campo(s) Invalido(s), Verifique se preencheu o formulário corretamente!");
       return false;
     }
 
@@ -159,9 +161,9 @@ export class OperadorComponent implements ControlValueAccessor, OnInit {
       {
         this._EhCadastroOuEdicao = !this._EhCadastroOuEdicao;
         /** Aqui faremos a requisição e salvar o operador */
+        return;
       }
-
-      this._responseEmitter.notify(this._form.invalid);
+        this._responseEmitter.notify(this._form.invalid);
     }
 
     if (jsonResposta.funcao == "novo") {
