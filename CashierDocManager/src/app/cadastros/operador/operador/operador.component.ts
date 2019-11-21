@@ -24,7 +24,7 @@ export class OperadorComponent implements ControlValueAccessor, OnInit {
   _EhCadastroOuEdicao: boolean = false;
 
   //Header da tabela de marca
-  colunas: string[]= ['Nome', 'Email', '', ''];
+  colunas: string[] = ['Nome', 'Email', '', ''];
 
   //Propriedade que irá atualizar os valores da tabela de marca
   valores: any[][] = [];
@@ -53,9 +53,9 @@ export class OperadorComponent implements ControlValueAccessor, OnInit {
   @ViewChild(FormGroupDirective, { static: true }) formGroupDirective: FormGroupDirective;
 
 
-  constructor(_fb: FormBuilder, 
-              private _notificationService: NotificationService, 
-              private _responseEmitter: ResponseEmitterService) {
+  constructor(_fb: FormBuilder,
+    private _notificationService: NotificationService,
+    private _responseEmitter: ResponseEmitterService) {
     this._form = _fb.group({
       nome: ['', [Validators.required, Validators.minLength(2)]],
       cpf: ['', [Validators.required, Validators.pattern(this.cpfcnpjPattern)]],
@@ -151,19 +151,22 @@ export class OperadorComponent implements ControlValueAccessor, OnInit {
     this.formGroupDirective.resetForm();
   }
 
+  /** Metodo que escuta o evento do Toolbar */
   reciverFeedback(respostaFilho) {
     console.log(respostaFilho)
     const jsonResposta = JSON.parse(respostaFilho);
 
     if (jsonResposta.funcao == "salvar") {
-
-      if(this._emiteDadosDoFormulario())
-      {
+      debugger
+      if (this._emiteDadosDoFormulario()) {
         this._EhCadastroOuEdicao = !this._EhCadastroOuEdicao;
         /** Aqui faremos a requisição e salvar o operador */
+
+        this._responseEmitter.notify(true);
+        this._form.reset();
         return;
       }
-        this._responseEmitter.notify(this._form.invalid);
+      this._responseEmitter.notify(false);
     }
 
     if (jsonResposta.funcao == "novo") {
@@ -172,7 +175,7 @@ export class OperadorComponent implements ControlValueAccessor, OnInit {
     }
   }
 
-  _respondaFilho() : boolean {
+  _respondaFilho(): boolean {
     return this._form.invalid;
   }
 

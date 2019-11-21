@@ -9,41 +9,44 @@ import { ResponseEmitterService } from '../../data-access/rest/response-emitter.
 export class ToolBoxComponent implements OnInit {
 
   @Output() evento = new EventEmitter();
-  ehNovo: boolean;
+  estaValido: boolean = true;
+
+  novo = 'Novo';
 
   constructor(private _responseEmitter: ResponseEmitterService) { }
 
   ngOnInit() {
-    this._responseEmitter.notifier.subscribe(value =>
-      this._respostaPai(value)
-    );
+    this._responseEmitter.notifier.subscribe(value => {
+      this._respostaPai(value);
+    });
   }
 
   handleButtonClickNovo(value) {
-    if (!this.ehNovo) {
-      this.ehNovo = !this.ehNovo;
+    debugger
+
+    if (this.estaValido) {
       this.evento.emit('{"funcao": "novo"}');
-      value.currentTarget.querySelector("span").innerHTML = "Confirmar";
+      this.novo = "Confirmar";
+      this.estaValido = !this.estaValido;
+    } else {
+      this.evento.emit('{"funcao": "salvar"}');
+
     }
-    else {
-      if(this.ehNovo)
-      {
-        this.ehNovo = !value;
-        this.evento.emit('{"funcao": "salvar"}');
-        value.currentTarget.querySelector("span").innerHTML = "Novo";
-      }
-    }
+
   }
+
+
 
   handleButtonClickLimpar(value) {
     this.evento.emit('{"funcao": "limpar"}');
-    this.ehNovo = true;
+    this.estaValido = true;
   }
 
   _respostaPai(resposta) {
-    if(resposta == true){
-      this.ehNovo = resposta;
-      return;
+    debugger
+    if (resposta) {
+      this.estaValido = !this.estaValido;
+      this.novo = "Novo";
     }
   }
 }
